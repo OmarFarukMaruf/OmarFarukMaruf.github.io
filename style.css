@@ -125,6 +125,90 @@ body {
   color: #374151;
 }
 
+.experience-timeline {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.experience-timeline h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+.timeline-container {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 30px;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  width: 4px;
+  height: 100%;
+  background: #1f2937;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  background: #2563eb;
+  border: 2px solid white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: #f9fafb;
+  padding: 15px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #4b5563;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+  margin: 5px 0 5px;
+  font-size: 1.1rem;
+}
+
+.timeline-content a {
+  color: #2563eb;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.timeline-content ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.timeline-content li {
+  margin-bottom: 6px;
+  color: #374151;
+}
+
 .achievement-section {
   max-width: 1000px;
   margin: 60px auto;
