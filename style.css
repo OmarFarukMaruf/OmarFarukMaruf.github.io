@@ -102,11 +102,74 @@ section h2 {
   border-bottom: 2px solid #e5e7eb;
   padding-bottom: 10px;
   margin-bottom: 20px;
+  color: #7f1d1d;
+  text-align: left;      /* Aligns the title to the left */
+  width: 80%;            /* Matches the card width for alignment */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.education-header,
+.timeline-item,
+.research-header,
+.publications-items,
+.achievement {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-section,
+.experience-timeline,
+#research,
+#publications,
+.achievement-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-item h5 {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.timeline-item .timeline-date,
+.date {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.org {
+  font-size: 1 rem;
+  color: brown;
+  margin-bottom: 10px;
+}
+
+
 footer {
+  background: #1f1f1f;
   text-align: center;
   padding: 20px;
-  background: #1f2937;
   color: white;
 }
