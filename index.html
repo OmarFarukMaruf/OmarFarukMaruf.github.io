@@ -2,225 +2,379 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Md Omar Faruk Maruf | Academic Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omar Faruk — Software Engineer</title>
+  <meta name="description"
+    content="Omar Faruk — Software Engineer. I design and build production-ready web systems with a focus on performance, reliability, and developer experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#achievements">Achievements</a>
-        </nav>
-    </header>
-    <main>
-        <section id="about" class="hero">
-            <div class="hero-container">
-                <div class="hero-image">
-                    <img src="Omar-Faruk.png" alt="Md Omar Faruk Maruf" />
-                </div>
-                <div class="hero-text">
-                    <h3>Hello, I am</h3>
-                    <h1>MD OMAR FARUK MARUF</h1>
-                    <h4>Software Engineer</h4>
-                    <p class="tagline">Blockchain, DeFi, Automation, and Cyber Physical Systems enthusiast.</p>
-                    <p>
-                        I am a self-motivated and passionate individual with experience in Computer Vision,
-                        High-Performance Cyber-Physical Systems,
-                        and the Internet of Things (IoT). Currently, I work as a Software Engineer in the Research and
-                        Development department at
-                        SMC Labs BD, where I am involved in blockchain-related projects. My areas of interest include
-                        <strong>Computer Vision</strong>,
-                        <strong>Blockchain</strong>, <strong>Automation</strong>, and <strong>High-Performance
-                            Cyber-Physical Systems</strong>. I have
-                        advanced proficiency in Python and C++ and am skilled in research, academic writing, and
-                        presenting at conferences.
-                    </p>
-                    <div class="links">
-                        <a href="mailto:mdomarfaruk.cse@gmail.com">Email</a> /
-                        <a href="CV_Omar-Faruk.pdf" download>CV</a> /
-                        <a href="https://scholar.google.com/citations?hl=en&user=nJJyJjsAAAAJ">Google Scholar</a> /
-                        <a href="https://github.com/OmarFarukMaruf" target="_blank">Github</a> /
-                        <a href="https://linkedin.com/in/omar-faruk-maruf" target="_blank">LinkedIn</a> /
-                        <a href="https://www.researchgate.net/profile/Md-Omar-Faruk-Maruf?ev=hdr_xprf">ResearchGate</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="divider">
-            <section id="education" class="education-section">
-                <h2>Education</h2>
-                <div class="education-header">
-                    <p><strong>B.Sc. in Computer Science and Engineering</strong><br />
-                        <a href="https://ugv.edu.bd/"> University of Global Village (UGV) </a>, <br>Feb 2020 – Feb 2024<br />
-                        Final CGPA: 3.80/4.00<br />
-                        Overall CGPA: 3.69/4.00</p>
-                </div>
-            </section>
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">Omar Faruk</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-menu" class="menu">
+        <!--<a href="#projects">Projects</a> -->
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <!-- <a href="#blog">Blog</a> -->
+        <a class="btn btn-solid small resume" href="#contact" target="_blank" rel="noopener">
+          <svg class="resume" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M14 3h7v7M10 14 21 3M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Contact Me
+        </a>
+      </nav>
+    </div>
+  </header>
 
-            <br><br>
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="radial"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Omar Faruk Maruf</h1>
+          <p class="role">Software Engineer</p>
+          <div class="highlights">
+            <div class="chip glass-dark"><span>Blockchain Development |</span> C++ • JavaScript • React</div>
+            <div class="chip glass-dark"><span>Computer Vision |</span> Python • Tensorflow • Image Processing</div>
+            <div class="chip glass-dark"><span>Autonomous Device |</span> IoT • CPS • Robotics</div>
+            <div class="chip glass-dark"><span>Research and Development |</span> Bitcoin Open-source</div>
+          </div>
+          <div class="cta">
+            <a href=" https://github.com/OmarFarukMaruf" class="btn btn-accent large">
+              View Projects
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="CV_Omar-Faruk.pdf" class="btn btn-ghost large">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Download Resume
+            </a>
+          </div>
 
-            <section id="experience" class="experience-timeline">
-                <h2>Experience</h2>
-                <div class="timeline-container">
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h5>Software Engineer</h5>
-                            <span class="timeline-date">Jun 2025 — Present</span><br>
-                            <a href="https://smclabs.tech" target="_blank">SMC Labs BD</a>
-                            <ul>
-                                <li>Working with Blockchain Architecture, Research and Development.</li>
-                                <li>Open-source Code Research, Wallet and Protocol Design, C++.</li>
-                                <li>Mentoring the juniors and new interns.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h5>Software Intern</h5>
-                            <span class="timeline-date">Dec 2024 — Jun 2025</span><br>
-                            <a href="https://smclabs.tech" target="_blank">SMC Labs BD</a>
-                            <ul>
-                                <li>Collaborated with senior engineers on blockchain & open-source work.</li>
-                                <li>Worked with documentation, C++, DApps, and research.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h5>Python Trainer</h5>
-                            <span class="timeline-date">May 2024 — Oct 2024</span><br>
-                            <a href="#">Sheikh Russel School of Future, ICT Division</a>
-                            <ul>
-                                <li>Taught Python to grades 6–10 with practical projects.</li>
-                                <li>Focused on data structures and robotics preparation.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <br><br>
-
-            <section id="research">
-                <h2>Research Interests</h2>
-                <div class="research-header">
-
-                    <p>I have a great interest in autonomous devices that can run in a dynamic environment, as well as
-                        robotics
-                        and IoT.
-                        That's why I am passionate about Computer Vision, High Performance CPS, and image processing.
-                        These
-                        interests help
-                        me to do research in my final year thesis on Non-permissible Mobile Detection to Enhance
-                        Security in
-                        Bangladeshi
-                        Museum: A Multiprocess YOLO-Based Approach, an automated system for detecting the smartphone and
-                        its
-                        camera area
-                        as well as the individual, and make a security alert.<br><br>
-
-                        I also have a great interest in Defi and Blockchain. From this
-                        interest, I obtained a six-month internship as a software intern at SMC Labs BD, work and
-                        trained in
-                        Blockchain
-                        technology. Now I am working as a software engineer at that company and work with the Blockchain
-                        solution. Now I
-                        want to also work with the blockchain solution and research it, looking for collaborations with
-                        professionals.
-                        <br><br>
-                        <strong>My research interests: </strong>
-                    </p>
-                    <ul>
-                        <li>Computer Vision</li>
-                        <li>Blockchain</li>
-                        <li>Real-Time Autonomous Systems</li>
-                        <li>Parallel Algorithms</li>
-                        <li>High-Performance Cyber Physical Systems</li>
-                    </ul>
-                </div>
-            </section>
-
-            <br><br>
-
-            <section id="publications">
-                <h2>Publications</h2>
-                <div class="publications-items">
-                    <p>Maruf, MD Omar Faruk, Md Riadul
-                        Islam, Md Jubayar Alam Rafi, Md Abu
-                        Sufian Shake, and Md Tariqul Islam.. "Non-permissible Mobile Detection to Enhance Security in
-                        Bangladeshi Museum: A
-                        Multiprocess YOLO-Based Approach." 6th ICEEICT, IEEE, 2024. DOI: <a
-                            href="https://doi.org/10.1109/ICEEICT62016.2024.10534325"
-                            target="_blank">10.1109/ICEEICT62016.2024.10534325</a></p>
-                </div>
-            </section>
-
-            <br><br>
-
-            <section id="achievements" class="achievement-section">
-                <h2>Achievements</h2>
-
-                <div class="achievement">
-                    <div class="achievement-header">
-                        <h3>Champion of imaGen Ventures Youth Challenge 2023</h3>
-                        <span class="date">21<sup>st</sup> Oct 2023</span>
-                    </div>
-                    <p class="org">UNICEF Bangladesh, Generation Unlimited</p>
-                    <p>
-                        They collected innovative ideas and around 200 teams had applied and only 11 teams were
-                        selected.
-                        We developed an automatic robot system "SYNERGY" which can detect and collect plastic wastes
-                        more
-                        efficiently (25% faster by implementing multi-process).
-                    </p>
-                    <ul>
-                        <li>We secured the Champion title and won $1000 prize money.</li>
-                        <li>3 days of training on the Art of Problem Definition.</li>
-                    </ul>
-                </div>
-
-                <div class="achievement">
-                    <div class="achievement-header">
-                        <h3>Champion: Smart Entrepreneurs in Barishal District 2024</h3>
-                        <span class="date">19<sup>th</sup> Oct 2024</span>
-                    </div>
-                    <p class="org">GP Accelerator, Grameenphone Ltd.</p>
-                    <p>
-                        We proposed an Emergency Response Device idea with a prototype to address rising river water
-                        levels
-                        and fluctuations in pH and salinity, which pose flooding risks and impact agriculture.
-                    </p>
-                    <ul>
-                        <li>We secured the Champion title among the 17 different ideas and won 1,00,000 BDT prize money.
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <br><br>
-
+          <div class="socials">
+            <a href="https://scholar.google.com/citations?hl=en&user=nJJyJjsAAAAJ" target="_blank"
+              rel="noopener">Publications</a>
+            <a href="https://github.com/OmarFarukMaruf" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/omar-faruk-maruf" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:mdomarfaruk.cse@gmail.com">Email</a>
+          </div>
         </div>
 
-    </main>
+        <!-- Animated portrait with glow halo -->
+        <div class="hero-figure">
+          <div class="glow"></div>
+          <div class="avatar-wrap glass-dark float">
+            <img src="Omar-Faruk.png" alt="Portrait of Omar Faruk" class="avatar" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <p>Email me: mdomarfaruk.cse@gmail.com</p> <br>
-        <p>&copy; 2025 Md Omar Faruk Maruf</p>
-    </footer>
-    <script src="script.js"></script>
+    <!--Education-->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Education</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item glass-light">
+            <h3>BSc in Computer Science & Engineering</h3>
+            <p><a href="https://ugv.edu.bd/">University of Global Village (UGV)</a></p>
+            <div class="content">
+              <ul class="tags education-tags">
+                <li>Feb 2020 – Feb 2024</li>
+                <div class="tags">
+                  <li><strong> Last Semester CGPA: </strong> 3.80/4.00 </li>
+                  <li><strong> Final CGPA:</strong> 3.69/4.00</li>
+                </div>
+              </ul>
+              <p> <strong>Relevant Courseworks:</strong> Mathematics I, II, & III, Discrete Mathematics, Data Structure,
+                OOP,
+                Parallel & Distributed Processing, Microprocessor & Assembly Language, Computer Architecture, VLSI
+                Design,
+                Pattern Recognition, Algorithm Design, Artificial Intelligence, Machine Learning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>Roles, impact, and technologies.(~ 1.5 years)</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item glass-light">
+            <div class="content">
+              <h3>Software Engineer</h3>
+              <h4><a href="https://smclabs.tech" target="_blank" rel="noopener">SMC Labs BD</a></h4>
+              <span class="period"> June 2025 — Present</span>
+              <ul>
+                <li>I am working with: Blockchain Architecture | Research and Development | Coding with C++ |
+                  Open-source Code Research | Wallet and Protocol Design.</li>
+                <li>Mentoring the juniors and new interns.</li>
+              </ul>
+           
+              <h3>Software Intern </h3>
+              <span class="period"> Dec 2024 — May 2025</span>
+              <ul>
+                <li>I worked with documentations, collaborated with Senior Engineers and completed every task which was
+                  given.</li>
+                <li>I have gained knowledge and practical experience with blockchain technology, decentralized
+                  applications, C++, mastering bitcoin open-source projects, research and development.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item glass-light">
+            <div class="content">
+              <h3>Python Trainer</h3> <h4 style="color: grey;">Government Project, ICT Division</h4>
+              <span class="period"> May 2024 — Oct 2024</span>
+              <ul>
+                <li>I worked as a Python trainer at secondary schools (class 6-10) under Sheikh Russel School of Future,
+                  ICT Division, Bangladesh.</li>
+                <li>I taught the students basic Python (Data Structure, problem-solving, and basic console projects).
+                </li>
+                <li>My other responsibility was to prepare them for their next government funding project on Robotics.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>Core strengths and supporting tools.</p>
+        </div>
+        <div class="grid cards">
+          <article class="card glass-light">
+            <h3>Core</h3>
+            <ul class="tags">
+              <li>Programming</li>
+              <li>Blockchain</li>
+              <li>Protocol Design</li>
+              <li>Computer Vision</li>
+              <li>DBMS</li>
+              <li>Software Development</li>
+              <li>Networking</li>
+              <li>Embedded Systems</li>
+              <li>Autonomous</li>
+              <li>Robotics</li>
+            </ul>
+          </article>
+          <article class="card glass-light">
+            <h3>Tools</h3>
+            <ul class="tags">
+              <li>Python</li>
+              <li>C++</li>
+              <li>JavaScript</li>
+              <li>PostgreSQL</li>
+              <li>Git</li>
+              <li>Bitcoin</li>
+              <li>React</li>
+              <li>Hyperledger</li>
+              <li>Tensorflow</li>
+              <li>Docker</li>
+            </ul>
+          </article>
+          <article class="card glass-light">
+            <h3>Others</h3>
+            <ul class="tags">
+              <li>Teaching</li>
+              <li>Teamwork</li>
+              <li>Problem Solving</li>
+              <li>Leadership</li>
+              <li>Communication</li>
+              <li>Project Management</li>
+            </ul>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research" class="section">
+      <div class="container">
+  <div class="section-head">
+      <h2>Research Interests</h2>
+    <p class="muted">Practical research at the intersection of perception, embedded systems, and decentralized
+      protocols.</p>
+  </div>
+
+        <div class="timeline">
+          <div class="timeline-item glass-light">
+          <br> <a class="btn btn-solid small resume" href="#contact" target="_blank" rel="noopener">
+        <svg class="resume" width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M14 3h7v7M10 14 21 3M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Publications
+      </a> <br>
+              <p>
+                I focus on building reliable, high-performance systems: real-time computer vision for edge devices,
+                autonomous and IoT systems that operate in dynamic environments, and scalable blockchain solutions.
+                My final-year thesis implemented a multiprocess YOLO-based detector for non-permissible mobile detection
+                in museums. I also explore consensus design, wallet/protocol implementation, and performance engineering
+                in
+                C++ and TypeScript.
+              </p>
+
+              <p><strong>Methods & tools:</strong> real-time object detection, edge inference, C++ optimization, YOLO,
+                TensorFlow/PyTorch, embedded Linux, Postgres/Redis, and open-source blockchain stacks
+                (Bitcoin/Hyperledger).</p>
+                  
+
+        <ul class="tags">
+          <li>Blockchain & Decentralization</li>
+          <li>Computer Vision & Edge AI</li>
+          <li>IoT, Robotics & Autonomous Systems</li>
+          <li>High‑Performance Systems & Optimization</li>
+          <li>Open Source Research & Collaboration</li>
+          
+        </ul> <br> 
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Achievements</h2>
+          <p>Selected awards, grants, and recognitions.</p>
+        </div>
+
+        <!-- Item 1 -->
+        <article class="achievement glass-light">
+          <div class="achv-media">
+            <!-- Replace src with your real image path -->
+            <img src="assets/gp-accelerator.jpg" alt="Smart Entrepreneurs in District 2024 award event">
+          </div>
+          <div class="achv-body">
+            <h3 class="achv-title">Champion: Smart Entrepreneurs in District 2024</h3>
+            <p class="achv-org">GP Accelerator, Grameenphone Ltd.</p>
+            <p class="achv-desc">
+              We proposed an Emergency Response Device prototype to monitor rising river water levels and
+              fluctuations in pH and salinity that threaten agriculture. The device automates alerts via SMS and
+              phone calls to local communities. Powered by solar energy, it provides critical information to affected
+              residents and farmers. We secured the Champion title among 17 ideas and won 1,00,000 BDT.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 2 (example) -->
+        <article class="achievement glass-light">
+          <div class="achv-media">
+            <img src="assets/unicef-imagen.jpg" alt="imaGen Ventures Youth Challenge 2023">
+          </div>
+          <div class="achv-body">
+            <h3 class="achv-title">Champion: imaGen Ventures Youth Challenge 2023</h3>
+            <p class="achv-org">UNICEF Bangladesh, Generation Unlimited</p>
+            <p class="achv-desc">
+              Among ~200 teams, 11 were selected. We built “SYNERGY,” an automatic robot that detects and collects
+              plastic wastes ~25% faster using multiprocess control, earning the Champion title and $1000 prize money.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Blog 
+    <section id="blog" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Writing</h2>
+          <p>Short, pragmatic posts on engineering craft.</p>
+        </div>
+        <div class="grid cards">
+          <article class="card glass-light">
+            <h3>Efficient DB Pagination: Keyset vs Offset</h3>
+            <p class="muted">How we dropped query times and stabilized response latency under high load. <span
+                class="date">Jul 28, 2025</span></p>
+            <a href="#" class="link">Read Post</a>
+          </article>
+          <article class="card glass-light">
+            <h3>Zero‑Downtime Deploys with Containers</h3>
+            <p class="muted">Blue‑green and rolling strategies that actually work. <span class="date">Jun 19,
+                2025</span></p>
+            <a href="#" class="link">Read Post</a>
+          </article>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Contact 
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Based in Dhaka, Bangladesh. Let’s build something impactful.</p>
+        </div>
+        <div class="grid cards">
+          <form class="card glass-light form" id="contact-form" novalidate>
+            <div class="row">
+              <div class="col"><label for="name">Name</label><input id="name" name="name" type="text"
+                  placeholder="Your name" required /></div>
+              <div class="col"><label for="email">Email</label><input id="email" name="email" type="email"
+                  placeholder="you@example.com" required /></div>
+            </div>
+            <label for="subject">Subject</label><input id="subject" name="subject" type="text" placeholder="Subject" />
+            <label for="message">Message</label><textarea id="message" name="message" rows="5"
+              placeholder="How can I help?" required></textarea>
+            <button type="submit" class="btn btn-solid">Send Message</button>
+            <p class="note">This is a demo form. Wire it up to Formspree/Resend or your own API.</p>
+          </form>
+          <div class="elsewhere">
+            <h3>Elsewhere</h3>
+            <ul class="list">
+              <li><a href="mailto:omar@example.com">omar@example.com</a></li>
+              <li><a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section> -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> Omar Faruk. All rights reserved.</small>
+    </div>
+    <div class="accent"></div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
