@@ -12,13 +12,28 @@
 </head>
 
 <body>
-    <header class='site-header'>
-        <div class='container nav'><a class='brand' href='index.html#home'>Omar Faruk</a>
-            <nav class='menu'><a href='projects.html' aria-current='page'>Projects</a><a
-                    href='index.html#experience'>Experience</a><a href='index.html#skills'>Skills</a><a
-                    class='btn btn-solid small' href='CV_Omar-Faruk.pdf' target='_blank' rel='noopener'>Resume</a></nav>
-        </div>
-    </header>
+ <!-- Top Navigation -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">Omar Faruk</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-menu" class="menu">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#research">Research</a>
+        <!-- <a href="#blog">Blog</a> -->
+        <a class="btn btn-solid small resume" href="#contact" target="_blank" rel="noopener">
+          <svg class="resume" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M14 3h7v7M10 14 21 3M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Contact Me
+        </a>
+      </nav>
+    </div>
+  </header>
     <main>
         <section class='section'>
             <div class='container'>
@@ -30,37 +45,37 @@
                     <article class='card glass-light'>
                         <header class='card-head'>
                             <h3>Study Abroad Platform</h3>
-                            <div class='links'><a href='#' class='link'>Demo</a><a href='#' class='link'>Code</a></div>
+                            <div class='links'><a href="https://github.com/OmarFarukMaruf/agaaw_scholar" class='link'>Demo</a><a href='#' class='link'>Code</a></div>
                         </header>
                         <p class='muted'>Full‑stack platform connecting students with consultants; real‑time chat,
                             secure payments, and application tracking.</p>
                         <ul class='tags'>
                             <li>React</li>
-                            <li>Node</li>
+                            <li>Next.js</li>
                             <li>PostgreSQL</li>
                             <li>Stripe</li>
                             <li>Auth0</li>
-                            <li>AWS</li>
                         </ul>
                     </article>
                     <article class='card glass-light'>
                         <header class='card-head'>
-                            <h3>Hospital Management on Hyperledger Fabric</h3>
-                            <div class='links'><a href='#' class='link'>Demo</a><a href='#' class='link'>Code</a></div>
+                            <h3>Blockchain DApp Project</h3>
+                            <div class='links'><a href="https://github.com/OmarFarukMaruf/Blockchain-DApp-Project" class='link'>Demo</a><a href='#' class='link'>Code</a></div>
                         </header>
                         <p class='muted'>Permissioned blockchain network for secure patient records, consent management,
                             and auditable data access.</p>
                         <ul class='tags'>
-                            <li>Hyperledger Fabric</li>
-                            <li>Node</li>
-                            <li>Docker</li>
-                            <li>Kubernetes</li>
+                            <li>React</li>
+                            <li>Truffle</li>
+                            <li>Ethereum</li>
+                            <li>Solidity</li>
+                            <li>Smart Contract</li>
                         </ul>
                     </article>
                     <article class='card glass-light'>
                         <header class='card-head'>
-                            <h3>Bitcoin Time‑Locked Staking Script</h3>
-                            <div class='links'><a href='#' class='link'>Docs</a><a href='#' class='link'>Code</a></div>
+                            <h3>Smartphone and its camera detection</h3>
+                            <div class='links'><a href="https://github.com/OmarFarukMaruf/SmartPhone_and_its_CameraArea_Detection" class='link'>Docs</a><a href='#' class='link'>Code</a></div>
                         </header>
                         <p class='muted'>Custom Bitcoin Script that locks UTXOs until a specific block time, enabling
                             simple, non‑custodial staking.</p>
