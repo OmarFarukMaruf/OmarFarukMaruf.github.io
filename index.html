@@ -4,402 +4,543 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omar Faruk — Software Engineer</title>
+  <title>Omar Faruk Maruf — Software Engineer</title>
   <meta name="description"
-    content="Omar Faruk — Software Engineer. I design and build production-ready web systems with a focus on performance, reliability, and developer experience.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    content="Omar Faruk Maruf — Software Engineer specialising in web and blockchain development, with research interests in autonomous devices, computer vision and security." />
+  <meta name="author" content="Omar Faruk Maruf" />
+  <link rel="canonical" href="https://omarfarukmaruf.github.io/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Omar Faruk Maruf — Software Engineer" />
+  <meta property="og:description"
+    content="Software Engineer specialising in web and blockchain development, with research interests in autonomous devices, computer vision and security." />
+  <meta property="og:url" content="https://omarfarukmaruf.github.io/" />
+  <meta property="og:image" content="https://omarfarukmaruf.github.io/assets/md-omar-faruk.jpeg" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141414'/><text x='50' y='52' font-family='Archivo,system-ui,sans-serif' font-size='44' font-weight='800' fill='white' text-anchor='middle' dominant-baseline='central'>OF</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Entrance animations only run when JS is confirmed; without this the
+       content is always visible. -->
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
-  <!-- Top Navigation -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#home">Omar Faruk</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="site-menu" class="menu">
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#research">Research</a>
-        <!-- <a href="#blog">Blog</a> -->
-        <a class="btn btn-solid small resume" href="#contact" target="_blank" rel="noopener">
-          <svg class="resume" width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M14 3h7v7M10 14 21 3M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          Contact Me
-        </a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+    </symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+      <path fill="currentColor" d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+    </symbol>
+  </svg>
+
+  <div class="shell">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="profile-img-wrap">
+          <img src="assets/md-omar-faruk.jpeg" alt="Portrait of Omar Faruk Maruf" class="profile-img" width="400"
+            height="400" />
+        </div>
+        <div class="profile-text">
+          <h1 class="name">Omar Faruk<br>Maruf</h1>
+          <p class="role">Software Engineer</p>
+          <p class="role-sub">Blockchain · Web · Research</p>
+          <!-- Edit or delete this status line as it changes -->
+          <p class="availability">Open to engineering &amp; research roles</p>
+        </div>
+
+        <div class="social">
+          <a href="https://www.linkedin.com/in/omar-faruk-maruf" target="_blank" rel="noopener" aria-label="LinkedIn"
+            title="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin" /></svg></a>
+          <a href="https://github.com/OmarFarukMaruf" target="_blank" rel="noopener" aria-label="GitHub"
+            title="GitHub"><svg aria-hidden="true"><use href="#i-github" /></svg></a>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=nJJyJjsAAAAJ" target="_blank" rel="noopener"
+            aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar" /></svg></a>
+          <a href="mailto:omarfaruk.maruff@gmail.com" aria-label="Email" title="Email"><svg
+              aria-hidden="true"><use href="#i-mail" /></svg></a>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Section navigation">
+        <ul>
+          <li><a href="#overview" class="active">Overview</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#others">Others</a></li>
+        </ul>
       </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="radial"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>Omar Faruk Maruf</h1>
-          <p class="role">Software Engineer | Blockchain</p>
-          <div class="highlights">
-            <div class="chip glass-dark"><span>Blockchain Development |</span> C++, Solidity • Ethereum, Bitcoin & TOI</div>
-            <div class="chip glass-dark"><span>Web |</span> React • NextJS • DeFi </div>
-            <div class="chip glass-dark"><span>Autonomous Device |</span> IoT • CPS • Robotics</div>
-            <div class="chip glass-dark"><span>Research and Development |</span> Bitcoin Open-source • Computer Vision</div>
-          </div>
-          <div class="cta">
-            <a href=" https://github.com/OmarFarukMaruf" class="btn btn-accent large">
-              View Projects
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
-            <a href="assets/CV_omar-faruk.pdf" class="btn btn-ghost large">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 5v14M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              Download Resume
-            </a>
-          </div>
+      <!-- Verify/edit: location inferred from your university and DYDF branch -->
+      <p class="sidebar-foot">Barishal, Bangladesh</p>
+    </aside>
 
-          <div class="socials">
-            <a href="https://scholar.google.com/citations?hl=en&user=nJJyJjsAAAAJ" target="_blank"
-              rel="noopener">Publications</a>
-            <a href="https://github.com/OmarFarukMaruf" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/omar-faruk-maruf" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="mailto:mdomarfaruk.cse@gmail.com">Email</a>
-          </div>
-        </div>
+    <!-- ==================== Main ==================== -->
+    <main class="main" id="main">
 
-        <!-- Animated portrait with glow halo -->
-        <div class="hero-figure">
-          <div class="glow"></div>
-          <div class="avatar-wrap glass-dark float">
-            <img src="assets/md-omar-faruk.jpg" alt="Portrait of Omar Faruk" class="avatar" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--Education-->
-    <section id="education" class="section">
-      <div class="container">
+      <!-- ---------- 01 Overview ---------- -->
+      <section id="overview" class="section">
         <div class="section-head">
-          <h2>Education</h2>
+          <span class="section-num">01</span>
+          <h2 class="section-title">Overview</h2>
         </div>
-        <div class="timeline">
-          <div class="timeline-item glass-light">
-            <h3>BSc in Computer Science & Engineering</h3>
-            <p><a href="https://ugv.edu.bd/">University of Global Village (UGV)</a></p>
-            <div class="content">
-              <ul class="tags education-tags">
-                <li>Feb 2020 – Feb 2024</li>
-                <div class="tags">
-                  <li><strong> Last Semester CGPA: </strong> 3.80/4.00 </li>
-                  <li><strong> Final CGPA:</strong> 3.69/4.00</li>
-                </div>
-              </ul>
-              <p> <strong>Relevant Courseworks:</strong> Mathematics I, II, & III, Discrete Mathematics, Data Structure,
-                OOP,
-                Parallel & Distributed Processing, Microprocessor & Assembly Language, Computer Architecture, VLSI
-                Design,
-                Pattern Recognition, Algorithm Design, Artificial Intelligence, Machine Learning.</p>
+
+        <div class="reveal">
+          <p class="lead">Software Engineer specialising in web and blockchain development, with research
+            interests in autonomous devices, computer vision and security. I build reliable, high-performance
+            systems with an emphasis on developer experience.</p>
+
+          <div class="grid-module grid-2" style="margin-bottom:28px">
+            <div class="focus-cell">
+              <strong>Blockchain Development</strong>
+              <p>C++ · Solidity · Ethereum · Bitcoin · TOI</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Experience</h2>
-          <p>Roles, impact, and technologies.(~ 1.5 years)</p>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item glass-light">
-            <div class="content">
-              <h3><a href="https://smclabs.tech" target="_blank" rel="noopener">SMC Labs BD</a></h3>
-              <h3>Software Engineer</h4>
-              <span class="period"> June 2025 — Present</span>
-              <p>I started my career at SMC Labs BD from taking a 6 month internship and then promoted to full time. Here are some of my works:</p>
-              <ul> 
-                <li>Blockchain Architecture | Research and Development | TOI-Chain</li>
-                <li>Bitcoin Open-source Code Research, implemented custom OP_CODEs and Scripts.</li>
-                <li>Implemented a new custom address type in Bitcoin with a staking concept with a logical script.</li>
-                <li>Wallet architecture design, documentation, did research on UTXO updating and calculating concepts.</li>
-                <li>I have gained knowledge and practical experience with blockchain technology, decentralized applications, C++, 
-                  mastering bitcoin open-source projects, research and development.</li>
-                <li>Collaborate with Professor Justin Shi, Tample University, USA and mentored the new interns.</li>
-              </ul>
+            <div class="focus-cell">
+              <strong>Web Engineering</strong>
+              <p>React · Next.js · NestJS · TypeScript · Socket.IO</p>
+            </div>
+            <div class="focus-cell">
+              <strong>Autonomous Devices</strong>
+              <p>IoT · CPS · Robotics</p>
+            </div>
+            <div class="focus-cell">
+              <strong>Research &amp; Development</strong>
+              <p>Blockchain · Computer Vision · Cybersecurity</p>
             </div>
           </div>
 
-          <div class="timeline-item glass-light">
-            <div class="content">
+          <div class="actions">
+            <a href="assets/CV_omar-faruk.pdf" class="btn btn-primary" target="_blank" rel="noopener">Download
+              Résumé</a>
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=nJJyJjsAAAAJ" class="btn btn-outline"
+              target="_blank" rel="noopener">Google Scholar</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- 02 Experience ---------- -->
+      <section id="experience" class="section">
+        <div class="section-head">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <div class="timeline reveal">
+          <article class="tl-item">
+            <div class="tl-head">
+              <h3>Software Engineer</h3>
+              <span class="date">Jun 2025 — Present</span>
+            </div>
+            <span class="org">SMC Labs BD · <a href="https://smclabs.tech" class="link-inline" target="_blank"
+                rel="noopener">smclabs.tech</a></span>
+            <p class="tl-summary">Joined on a six-month internship and was promoted to full time.</p>
+            <ul class="bullets">
+              <li>Lead research and development on blockchain core architecture design (TOI-Chain), modified
+                Bitcoin wallet codebases, and protocol optimisations in advanced C++.</li>
+              <li>Conduct open-source codebase analysis on Bitcoin to implement custom cryptographic and security
+                features for next-generation blockchain infrastructure.</li>
+              <li>Implemented custom OP_CODEs, scripts and a new custom address type in Bitcoin.</li>
+              <li>Collaborate with Professor Justin Shi (Temple University, USA) and senior engineers on Bitcoin
+                core research, decentralisation technologies and performance tuning such as ACAN.</li>
+            </ul>
+            <div class="tags">
+              <span>C++</span><span>Blockchain</span><span>dApp</span><span>Solidity</span><span>Next.js</span><span>NestJS</span>
+            </div>
+          </article>
+
+          <article class="tl-item">
+            <div class="tl-head">
               <h3>Python Trainer</h3>
-              <h4 style="color: grey;">Government Project, ICT Division</h4>
-              <span class="period"> May 2024 — Oct 2024</span>
-              <ul>
-                <li>I worked as a Python trainer at secondary schools (class 6-10) under Sheikh Russel School of Future,
-                  ICT Division, Bangladesh.</li>
-                <li>I taught the students basic Python (Data Structure, problem-solving, and basic console projects).
-                </li>
-                <li>My other responsibility was to prepare them for their next government funding project on Robotics.
-                </li>
-              </ul>
+              <span class="date">May 2024 — Oct 2024</span>
+            </div>
+            <span class="org">Government Project, ICT Division</span>
+            <ul class="bullets">
+              <li>Python trainer at secondary schools (classes 6–10) under Sheikh Russel School of Future, ICT
+                Division, Bangladesh.</li>
+              <li>Taught basic Python — data structures, problem solving and console projects.</li>
+              <li>Prepared students for the follow-on government-funded robotics programme.</li>
+            </ul>
+          </article>
+
+          <article class="tl-item">
+            <div class="tl-head">
+              <h3>Volunteering</h3>
+              <span class="date">Oct 2023 — Present</span>
+            </div>
+            <div class="note" style="margin-top:14px">
+              <h4>President — DYDF, Babuganj Branch</h4>
+              <span class="note-date">Nov 2024 — Present</span>
+              <p>Lead district-level youth empowerment, educational literacy programmes and community technology
+                awareness campaigns.</p>
+            </div>
+            <div class="note">
+              <h4>Active Volunteer Member — Volunteer for Bangladesh (VBD)</h4>
+              <span class="note-date">Oct 2023 — Jan 2025</span>
+              <p>Organised emergency disaster response and relief operations for flood-affected populations.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ---------- 03 Education ---------- -->
+      <section id="education" class="section">
+        <div class="section-head">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="timeline reveal">
+          <article class="tl-item">
+            <div class="tl-head">
+              <h3>BSc in Computer Science &amp; Engineering</h3>
+              <span class="date">Feb 2020 — Feb 2024</span>
+            </div>
+            <span class="org"><a href="https://ugv.edu.bd/" class="link-inline" target="_blank"
+                rel="noopener">University of Global Village (UGV)</a></span>
+
+            <div class="grid-module grid-2" style="max-width:420px;margin:16px 0">
+              <div class="stat-cell">
+                <span class="stat-label">Final CGPA</span>
+                <strong class="stat-value">3.69<span class="stat-suffix"> / 4.00</span></strong>
+              </div>
+              <div class="stat-cell">
+                <span class="stat-label">Last semester</span>
+                <strong class="stat-value">3.80<span class="stat-suffix"> / 4.00</span></strong>
+              </div>
+            </div>
+
+            <p class="coursework"><strong>Relevant coursework — </strong>Mathematics I–III, Discrete Mathematics,
+              Data Structures, OOP, Parallel &amp; Distributed Processing, Microprocessor &amp; Assembly Language,
+              Computer Architecture, VLSI Design, Pattern Recognition, Algorithm Design, Artificial Intelligence,
+              Machine Learning.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ---------- 04 Research ---------- -->
+      <section id="research" class="section">
+        <div class="section-head">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Research</h2>
+        </div>
+
+        <div class="reveal">
+          <p class="lead-sm">Practical research at the intersection of perception, computer vision, blockchain and
+            decentralised protocols.</p>
+
+          <p class="copy">Real-time computer vision for edge devices, autonomous and IoT systems operating in
+            dynamic environments, and scalable blockchain solutions.</p>
+          <p class="copy">My final-year thesis implemented a multiprocess YOLO-based detector for non-permissible
+            mobile detection in museums. I also explore consensus design, wallet and protocol implementation, and
+            performance engineering in C++ and TypeScript.</p>
+
+          <div class="callout" style="margin-top:20px">
+            <span class="stat-label">Methods &amp; tools</span>
+            <p>Real-time object detection, Python, YOLO, TensorFlow, Raspberry Pi, and open-source blockchain
+              stacks (Bitcoin).</p>
+          </div>
+
+          <div class="actions">
+            <a href="https://ieeexplore.ieee.org/document/10534325" class="btn btn-outline" target="_blank"
+              rel="noopener">View IEEE publication</a>
+          </div>
+
+          <div class="tags" style="margin-top:20px">
+            <span>Blockchain scalability &amp; security</span><span>Computer vision</span>
+            <span>Autonomous devices</span><span>Cybersecurity in AI</span><span>Environmental safety</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- 05 Projects ---------- -->
+      <section id="projects" class="section">
+        <div class="section-head">
+          <span class="section-num">05</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+
+        <div class="grid-module grid-2 reveal">
+          <article class="project-cell">
+            <h3>Agaaw — Study Abroad Platform</h3>
+            <p>Full-stack platform connecting students with mentors; real-time chat, secure payments and
+              application tracking.</p>
+            <div class="tags">
+              <span>React</span><span>Next.js</span><span>NestJS</span><span>PostgreSQL</span><span>Auth0</span><span>Socket.io</span>
+            </div>
+            <div class="cell-links">
+              <a href="https://www.agaaw.com" target="_blank" rel="noopener">Demo</a>
+              <a href="https://github.com/Agaaw-Inc/agaaw-frontend" class="secondary" target="_blank"
+                rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="project-cell">
+            <h3>Blockchain DApp Project</h3>
+            <p>Permissioned blockchain network for secure patient records, consent management and auditable data
+              access.</p>
+            <div class="tags">
+              <span>React</span><span>Truffle</span><span>Ethereum</span><span>Solidity</span><span>Smart contracts</span>
+            </div>
+            <div class="cell-links">
+              <a href="https://github.com/OmarFarukMaruf/Blockchain-DApp-Project" target="_blank"
+                rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="project-cell">
+            <h3>Smartphone &amp; Camera Detection</h3>
+            <p>Multiprocess YOLO detector identifying non-permissible mobile devices and their camera area in real
+              time on edge hardware.</p>
+            <div class="tags">
+              <span>Python</span><span>YOLO</span><span>TensorFlow</span><span>Raspberry Pi</span>
+            </div>
+            <div class="cell-links">
+              <a href="https://github.com/OmarFarukMaruf/SmartPhone_and_its_CameraArea_Detection" target="_blank"
+                rel="noopener">Code</a>
+              <a href="https://ieeexplore.ieee.org/document/10534325" class="secondary" target="_blank"
+                rel="noopener">Paper</a>
+            </div>
+          </article>
+
+          <article class="project-cell">
+            <h3>Time-locked Bitcoin Staking Script</h3>
+            <p>Custom Bitcoin Script that locks UTXOs until a specific block time, enabling simple non-custodial
+              staking.</p>
+            <div class="tags">
+              <span>Bitcoin Script</span><span>Python</span><span>bitcoind</span>
+            </div>
+            <!-- No repo link supplied in the design — points at your profile -->
+            <div class="cell-links">
+              <a href="https://github.com/OmarFarukMaruf" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ---------- 06 Achievements & Awards ---------- -->
+      <section id="awards" class="section">
+        <div class="section-head">
+          <span class="section-num">06</span>
+          <h2 class="section-title">Achievements &amp; Awards</h2>
+        </div>
+
+        <div class="award-list reveal">
+          <article class="award">
+            <div class="tl-head">
+              <h3><span class="badge">Champion</span>Smart Entrepreneurs in District</h3>
+              <span class="date">2024</span>
+            </div>
+            <span class="org">GP Accelerator, Grameenphone Ltd.</span>
+            <p class="copy" style="margin-top:12px">Proposed an emergency response device prototype monitoring
+              rising river water levels and fluctuations in pH and salinity. The solar-powered device automates
+              alerts via SMS and phone calls. Secured the Champion title among 17 ideas.</p>
+          </article>
+
+          <article class="award">
+            <div class="tl-head">
+              <h3><span class="badge">Champion</span>imaGen Ventures Youth Challenge</h3>
+              <span class="date">2023</span>
+            </div>
+            <span class="org">UNICEF Bangladesh, Generation Unlimited</span>
+            <p class="copy" style="margin-top:12px">Among roughly 200 teams, we built “SYNERGY”, an automatic robot
+              that detects and collects plastic waste around 25% faster using multiprocess control, earning the
+              Champion title.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ---------- 07 Skills ---------- -->
+      <section id="skills" class="section">
+        <div class="section-head">
+          <span class="section-num">07</span>
+          <h2 class="section-title">Skills</h2>
+        </div>
+
+        <div class="rows-ruled reveal">
+          <div class="row">
+            <div class="row-label">Core</div>
+            <div class="chips">
+              <span>Blockchain</span><span>Security &amp; cryptography</span><span>Computer vision</span>
+              <span>DBMS</span><span>Software development</span><span>Networking</span>
+              <span>Embedded systems</span><span>Autonomous systems</span><span>Robotics</span>
             </div>
           </div>
 
-        </div>
-      </div>
-    </section>
+          <div class="row">
+            <div class="row-label">Tools</div>
+            <div class="chips">
+              <span>Python</span><span>C++</span><span>Solidity</span><span>JavaScript</span><span>PostgreSQL</span>
+              <span>Git</span><span>Bitcoin</span><span>Ethereum</span><span>Hyperledger</span><span>TensorFlow</span>
+              <span>YOLO</span><span>Docker</span>
+            </div>
+          </div>
 
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <div class="container">
+          <div class="row">
+            <div class="row-label">Soft skills</div>
+            <div class="chips">
+              <span>Teaching</span><span>Teamwork</span><span>Problem solving</span><span>Leadership</span>
+              <span>Communication</span><span>Project management</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- 08 Courses ---------- -->
+      <section id="courses" class="section">
         <div class="section-head">
-          <h2>Skills</h2>
-          <p>Core strengths and supporting tools.</p>
+          <span class="section-num">08</span>
+          <h2 class="section-title">Courses</h2>
         </div>
-        <div class="grid cards">
-          <article class="card glass-light">
-            <h3>Core</h3>
-            <ul class="tags">
-              <li>Blockchain</li>
-              <li>Security and Cryptography</li>
-              <li>Computer Vision</li>
-              <li>DBMS</li>
-              <li>Software Development</li>
-              <li>Networking</li>
-              <li>Embedded Systems</li>
-              <li>Autonomous Systems</li>
-              <li>Robotics</li>
-            </ul>
-          </article>
-          <article class="card glass-light">
-            <h3>Tools</h3>
-            <ul class="tags">
-              <li>Python</li>
-              <li>C++</li>
-              <li>Solidity</li>
-              <li>JavaScript</li>
-              <li>PostgreSQL</li>
-              <li>Git</li>
-              <li>Bitcoin</li>
-              <li>Ethereum</li>
-              <li>Hyperledger</li>
-              <li>Tensorflow</li>
-              <li>YOLO</li>
-              <li>Docker</li>
-            </ul>
-          </article>
-          <article class="card glass-light">
-            <h3>Soft Skills</h3>
-            <ul class="tags">
-              <li>Teaching</li>
-              <li>Teamwork</li>
-              <li>Problem Solving</li>
-              <li>Leadership</li>
-              <li>Communication</li>
-              <li>Project Management</li>
-            </ul>
-          </article>
 
+        <div class="course-list reveal">
+          <div class="course-row">
+            <div class="course-issuer">Cisco</div>
+            <div>
+              <strong>Introduction to Cybersecurity</strong>
+              <span class="course-note">Cisco Networking Academy</span>
+            </div>
+            <a class="cred" href="https://drive.google.com/file/d/1RZTFHqIwab8iTCCylqFTpJwsjAHOscmV/view?usp=sharing"
+              target="_blank" rel="noopener">Certificate</a>
+          </div>
+
+          <div class="course-row">
+            <div class="course-issuer">Google × Kaggle</div>
+            <div>
+              <strong>5-Day AI Agents Intensive</strong>
+              <span class="course-note">Google in partnership with Kaggle</span>
+            </div>
+            <a class="cred" href="https://www.kaggle.com/certification/badges/mdomarfarukmaruf/105" target="_blank"
+              rel="noopener">Credential</a>
+          </div>
+
+          <div class="course-row">
+            <div class="course-issuer">HackerRank</div>
+            <div>
+              <strong>Problem Solving</strong>
+              <span class="course-note">Certificate of Accomplishment</span>
+            </div>
+            <a class="cred" href="https://www.hackerrank.com/certificates/iframe/243aa9b6c59d" target="_blank"
+              rel="noopener">Credential</a>
+          </div>
+
+          <div class="course-row">
+            <div class="course-issuer">Sololearn</div>
+            <div>
+              <strong>C++</strong>
+              <span class="course-note">Course certificate</span>
+            </div>
+            <a class="cred" href="https://www.sololearn.com/en/certificates/CC-HLKKGDTF" target="_blank"
+              rel="noopener">Certificate</a>
+          </div>
+
+          <div class="course-row">
+            <div class="course-issuer">Sololearn</div>
+            <div>
+              <strong>Python for Data Structures</strong>
+              <span class="course-note">Course certificate</span>
+            </div>
+            <a class="cred" href="https://www.sololearn.com/en/certificates/CC-HYXWJBYX" target="_blank"
+              rel="noopener">Certificate</a>
+          </div>
+
+          <div class="course-row">
+            <div class="course-issuer">Sololearn</div>
+            <div>
+              <strong>SQL</strong>
+              <span class="course-note">Course certificate</span>
+            </div>
+            <a class="cred" href="https://www.sololearn.com/en/certificates/CT-CNQAONAG" target="_blank"
+              rel="noopener">Certificate</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Research Interests -->
-    <section id="research" class="section">
-      <div class="container">
+      <!-- ---------- 09 Others ---------- -->
+      <section id="others" class="section">
         <div class="section-head">
-          <h2>Research Interests</h2>
-          <p class="muted">Practical research at the intersection of perception, Computer Vision, Blockchain, and decentralized
-            protocols.</p>
+          <span class="section-num">09</span>
+          <h2 class="section-title">Others</h2>
         </div>
 
-        <div class="timeline">
-          <div class="timeline-item glass-light">
-            <br> <a class="btn btn-solid small resume" href="https://ieeexplore.ieee.org/document/10534325" target="_blank" rel="noopener">
-              <svg class="resume" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M14 3h7v7M10 14 21 3M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              Publications
-            </a> <br>
-            <p>
-              I focus on building reliable, high-performance systems: real-time computer vision for edge devices,
-              autonomous and IoT systems that operate in dynamic environments, and scalable blockchain solutions.
-              My final-year thesis implemented a multiprocess YOLO-based detector for non-permissible mobile detection
-              in museums. I also explore consensus design, wallet/protocol implementation, and performance engineering
-              in
-              C++ and TypeScript.
-            </p>
+        <div class="rows-ruled reveal">
+          <div class="row">
+            <div>
+              <span class="row-label">IELTS</span>
+              <span class="row-sub">24 Sep 2024</span>
+            </div>
+            <div class="grid-module grid-5" style="max-width:520px">
+              <div class="stat-cell stat-cell-sm">
+                <span class="stat-label">Overall</span>
+                <strong class="stat-value">6.5</strong>
+              </div>
+              <div class="stat-cell stat-cell-sm">
+                <span class="stat-label">Writing</span>
+                <strong class="stat-value is-sub">6.5</strong>
+              </div>
+              <div class="stat-cell stat-cell-sm">
+                <span class="stat-label">Speaking</span>
+                <strong class="stat-value is-sub">6.5</strong>
+              </div>
+              <div class="stat-cell stat-cell-sm">
+                <span class="stat-label">Listening</span>
+                <strong class="stat-value is-sub">6.5</strong>
+              </div>
+              <div class="stat-cell stat-cell-sm">
+                <span class="stat-label">Reading</span>
+                <strong class="stat-value is-sub">6.0</strong>
+              </div>
+            </div>
+          </div>
 
-            <p><strong>Methods & tools:</strong> Real-time object detection, Python, YOLO,
-              TensorFlow, Raspberry Pi, and open-source blockchain stacks (Bitcoin).</p>
+          <div class="row">
+            <div class="row-label">Languages</div>
+            <div class="chips">
+              <span>English — C1</span><span>Bengali — C1</span><span>German — learning</span>
+            </div>
+          </div>
 
-            <h3>Keywords</h3>  
-            <ul class="tags">
-              <li>Blockchain & Decentralization</li>
-              <li>Computer Vision & Edge AI</li>
-              <li>IoT, Robotics & Autonomous Systems</li>
-              <li>High‑Performance Systems & Optimization</li>
-              <li>Open Source Research & Collaboration</li>
-
-            </ul> <br>
+          <div class="row">
+            <div class="row-label">Hobbies</div>
+            <div class="chips">
+              <span>Reading</span><span>Traveling</span><span>Photography</span><span>Music</span><span>Sports</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Achievements -->
-    <section id="achievements" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Achievements</h2>
-          <p>Selected awards, grants, and recognitions.</p>
-        </div>
+      <footer class="footer">
+        <span>© <span id="year">2026</span> Omar Faruk Maruf</span>
+        <a href="mailto:omarfaruk.maruff@gmail.com">omarfaruk.maruff@gmail.com</a>
+      </footer>
 
-        <article class="achievement glass-light">
-          <div class="achv-media">
-            <img src="assets/gp-accelerator.jpg" alt="Smart Entrepreneurs in District 2024 award event">
-          </div>
-          <div class="achv-body">
-            <h3 class="achv-title">Champion: Smart Entrepreneurs in District 2024</h3>
-            <p class="achv-org">GP Accelerator, Grameenphone Ltd.</p>
-            <p class="achv-desc">
-              We proposed an Emergency Response Device prototype to monitor rising river water levels and
-              fluctuations in pH and salinity that threaten agriculture. The device automates alerts via SMS and
-              phone calls to local communities. Powered by solar energy, it provides critical information to affected
-              residents and farmers. We secured the Champion title among 17 ideas and won 1,00,000 BDT.
-            </p>
-          </div>
-        </article>
-
-        <article class="achievement glass-light">
-          <div class="achv-media">
-            <img src="assets/unicef-imagen.jpg" alt="imaGen Ventures Youth Challenge 2023">
-          </div>
-          <div class="achv-body">
-            <h3 class="achv-title">Champion: imaGen Ventures Youth Challenge 2023</h3>
-            <p class="achv-org">UNICEF Bangladesh, Generation Unlimited</p>
-            <p class="achv-desc">
-              Among ~200 teams, 11 were selected. We built “SYNERGY,” an automatic robot that detects and collects
-              plastic wastes ~25% faster using multiprocess control, earning the Champion title and $1000 prize money.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <!-- <section id="projects" class='section'>
-      <div class='container'>
-        <div class='section-head'>
-          <h2>Projects</h2>
-          <p>Selected work and case studies.</p>
-        </div>
-        <div class='cards'>
-          <article class='card glass-light'>
-            <header class='card-head'>
-              <h3>Study Abroad Platform</h3>
-              <div class='links'><a href="https://github.com/OmarFarukMaruf/agaaw_scholar" class='link'>Demo</a><a
-                  href='#' class='link'>Code</a></div>
-            </header>
-            <p class='muted'>Full‑stack platform connecting students with consultants; real‑time chat,
-              secure payments, and application tracking.</p>
-            <ul class='tags'>
-              <li>React</li>
-              <li>Next.js</li>
-              <li>PostgreSQL</li>
-              <li>Stripe</li>
-              <li>Auth0</li>
-            </ul>
-          </article>
-          <article class='card glass-light'>
-            <header class='card-head'>
-              <h3>Blockchain DApp Project</h3>
-              <div class='links'><a href="https://github.com/OmarFarukMaruf/Blockchain-DApp-Project"
-                  class='link'>Demo</a><a href='#' class='link'>Code</a></div>
-            </header>
-            <p class='muted'>Permissioned blockchain network for secure patient records, consent management,
-              and auditable data access.</p>
-            <ul class='tags'>
-              <li>React</li>
-              <li>Truffle</li>
-              <li>Ethereum</li>
-              <li>Solidity</li>
-              <li>Smart Contract</li>
-            </ul>
-          </article>
-          <article class='card glass-light'>
-            <header class='card-head'>
-              <h3>Smartphone and its camera detection</h3>
-              <div class='links'><a href="https://github.com/OmarFarukMaruf/SmartPhone_and_its_CameraArea_Detection"
-                  class='link'>Docs</a><a href='#' class='link'>Code</a></div>
-            </header>
-            <p class='muted'>Custom Bitcoin Script that locks UTXOs until a specific block time, enabling
-              simple, non‑custodial staking.</p>
-            <ul class='tags'>
-              <li>Bitcoin Script</li>
-              <li>Python</li>
-              <li>bitcoind</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main> -->
-
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-upper">
-        <div class="footer-social">
-          <h3 class="footer-social-heading">Social</h3>
-          <div class="footer-social-icons">
-            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/omar-faruk-maruf">
-              <img class="footer-social-icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://github.com/OmarFarukMaruf">
-              <img class="footer-social-icon" src="./assets/png/github-ico.png" alt="GitHub" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://x.com/omarfaruk_maruf">
-              <img class="footer-social-icon" src="./assets/png/x-ico.png" alt="Twitter" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/omar_faruk_maruf">
-              <img class="footer-social-icon" src="./assets/png/insta-ico.png" alt="Instagram" />
-            </a>
-          </div>
-          <p> Or,</p>
-          <P> Email Me: mdomarfaruk.cse@gmail.com</P>
-        </div>
-        <div class="footer-info">
-          <h4 class="footer-info-name">Omar Faruk Maruf</h4>
-          <p class="footer-info-desc">
-            Software Engineer specializing in blockchain development, worked and interests in computer vision, and
-            autonomous systems.
-            Passionate about building reliable, high-performance solutions.
-          </p>
-        </div>
-      </div>
-      <div class="footer-lower">
-        &copy; Copyright 2025. Made by
-        <a rel="noreferrer" target="_blank" href="https://github.com/OmarFarukMaruf">Omar Faruk Maruf</a>
-      </div>
-    </div>
-  </footer>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
