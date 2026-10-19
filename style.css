@@ -5,22 +5,27 @@
    ============================================================ */
 
 :root {
-  /* Ink ramp */
-  --ink:    #141414;  /* headings, rules, primary buttons        */
-  --ink-2:  #2a2a2a;  /* chip labels                             */
-  --body:   #4a4a4a;  /* paragraphs, bullets                     */
-  --muted:  #6e6e6e;  /* secondary meta, section numerals        */
-  --faint:  #767676;  /* de-emphasised suffixes and small dates  */
+  /* Monochrome portfolio palette with red reserved for the dial indicator. */
+  --ink:    #141414;
+  --ink-2:  #292929;
+  --body:   #3f3f3f;
+  --muted:  #666666;
+  --faint:  #777777;
 
-  /* Structure */
   --bg:     #ffffff;
-  --fill:   #f7f7f7;  /* chip + callout fill                     */
-  --line:   #e4e4e4;  /* hairline                                */
-  --line-2: #c8c8c8;  /* inline-link underline                   */
+  --fill:   #f7f7f7;
+  --line:   #e4e4e4;
+  --line-2: #c8c8c8;
 
-  --font: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Preserve the current typewriter font pairing. */
+  --font: 'Courier Prime', 'Courier New', monospace;
+  --display-font: 'Special Elite', 'Courier Prime', monospace;
 
   --rail: 328px;
+  --sidebar-pad-x: 34px;
+  --dial-accent: #d71920;
+  --dial-ink: #141414;
+  --dial-muted: #555555;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -42,7 +47,7 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: var(--ink);
-  background: var(--bg);
+  background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -51,7 +56,7 @@ body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-::selection { background: var(--ink); color: #fff; }
+::selection { background: var(--dial-accent); color: #ffffff; }
 
 a:focus-visible,
 button:focus-visible,
@@ -67,7 +72,7 @@ button:focus-visible,
   top: 0;
   z-index: 100;
   background: var(--ink);
-  color: #fff;
+  color: var(--bg);
   padding: 11px 20px;
   font-size: 13px;
   font-weight: 700;
@@ -91,9 +96,9 @@ button:focus-visible,
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 44px 34px;
+  padding: 44px var(--sidebar-pad-x);
   border-right: 2px solid var(--ink);
-  background: var(--bg);
+  background: transparent;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -102,11 +107,11 @@ button:focus-visible,
 .sidebar::-webkit-scrollbar-thumb { background: var(--line); }
 
 .profile-img-wrap {
-  width: 158px;
-  height: 158px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
-  background: #f0f0f0;
-  margin-bottom: 22px;
+  background: var(--fill);
+  margin-bottom: 16px;
 }
 
 .profile-img {
@@ -118,10 +123,11 @@ button:focus-visible,
 }
 
 .name {
-  font-size: 27px;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-family: var(--display-font);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   margin-bottom: 10px;
 }
 
@@ -138,26 +144,11 @@ button:focus-visible,
   color: var(--muted);
 }
 
-.availability {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 16px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.availability::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--ink);
-  flex: none;
-}
-
 .social {
   display: flex;
-  gap: 14px;
-  margin-top: 20px;
+  gap: 18px;
+  margin-top: 30px;
+  justify-content: center;
 }
 
 .social a {
@@ -166,43 +157,163 @@ button:focus-visible,
   transition: color 0.2s var(--ease);
 }
 .social a:hover { color: var(--ink); }
-.social svg { width: 19px; height: 19px; }
+.social svg { width: 25px; height: 25px; }
 
-/* Navigation — structure and behaviour kept, restyled flat */
-.nav { margin-top: 26px; }
+/* ============================================================
+   Radio-inspired portfolio dial
+   ============================================================ */
+.nav { margin-top: 18px; }
+.nav-list { display: none; list-style: none; }
 
-.nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
+.dial-widget {
+  /* The dial grows into the sidebar's right padding so its outer ticks
+     sit directly against the vertical divider, like a physical tuner. */
+  width: calc(100% + var(--sidebar-pad-x));
+  max-width: none;
+  margin-left: 0;
+  margin-right: calc(-1 * var(--sidebar-pad-x));
+  color: var(--ink);
 }
 
-.nav a {
+.dial-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 2px 8px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  line-height: 1.2;
+}
+
+.dial {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+
+.dial-ticks {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, var(--dial-muted) 0deg 1deg, transparent 1deg 6deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+  opacity: .88;
+  pointer-events: none;
+}
+
+.dial-face {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.dial-case { fill: var(--bg); stroke: var(--dial-ink); stroke-width: 1.7; }
+.dial-inner-ring { fill: none; stroke: var(--line); stroke-width: .8; }
+.dial-dividers line { stroke: var(--line-2); stroke-width: 1; }
+.dial-rotor { transform-box: view-box; transform-origin: 160px 160px; }
+
+.dial-link {
+  color: var(--muted);
+  cursor: pointer;
+  outline: none;
+}
+.dial-link text {
+  fill: currentColor;
+  font-family: var(--font);
+  font-size: 10.8px;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 2.6px;
+  stroke-linejoin: round;
+  transition: fill .18s ease, font-weight .18s ease;
+}
+.dial-link:hover text,
+.dial-link:focus-visible text,
+.dial-link.is-active text {
+  fill: var(--dial-accent);
+  font-weight: 800;
+}
+.dial-link:focus-visible text {
+  stroke: var(--bg);
+  stroke-width: 4px;
+}
+
+.dial-pointer path { fill: var(--dial-accent); stroke: var(--bg); stroke-width: 1.8; }
+.dial-pointer circle { fill: var(--bg); }
+.dial-hub { fill: var(--bg); stroke: var(--dial-ink); stroke-width: 1.6; }
+.dial-hub-core { fill: var(--dial-accent); }
+
+.dial-readout {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 9px;
+  min-height: 26px;
+  margin-top: 18px;
+  font-variant-numeric: tabular-nums;
+}
+.dial-readout-index {
+  color: var(--dial-accent);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.dial-readout-name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.dial-sound {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 5px 0;
-  font-size: 14px;
-  font-weight: 600;
+  justify-content: center;
+  gap: 7px;
+  width: max-content;
+  margin: 24px auto 0;
+  padding: 5px 9px;
   color: var(--muted);
-  transition: color 0.2s var(--ease);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease, background .18s ease;
 }
-
-.nav a::before {
-  content: '';
-  width: 0;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.25s var(--ease);
+.dial-sound:hover,
+.dial-sound[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--dial-accent);
+  background: color-mix(in srgb, var(--dial-accent) 6%, var(--bg));
+}
+.dial-sound:focus-visible { outline: 2px solid var(--dial-accent); outline-offset: 3px; }
+.dial-sound-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--faint);
   flex: none;
 }
-
-.nav a:hover { color: var(--ink); }
-.nav a:hover::before { width: 12px; }
-
-.nav a.active { color: var(--ink); }
-.nav a.active::before { width: 18px; }
+.dial-sound[aria-pressed="true"] .dial-sound-led { background: var(--dial-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--dial-accent) 14%, transparent); }
+.dial-hint {
+  margin-top: 10px;
+  color: var(--faint);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-align: center;
+}
 
 .sidebar-foot {
   padding-top: 24px;
@@ -232,7 +343,7 @@ button:focus-visible,
 }
 
 .section-num {
-  font-size: 11px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
@@ -240,9 +351,10 @@ button:focus-visible,
 }
 
 .section-title {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-family: var(--display-font);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.055em;
   text-transform: uppercase;
 }
 
@@ -299,8 +411,9 @@ button:focus-visible,
 
 .focus-cell strong {
   display: block;
+  font-family: var(--display-font);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 400;
   margin-bottom: 6px;
 }
 
@@ -361,16 +474,16 @@ button:focus-visible,
 
 .btn-primary {
   background: var(--ink);
-  color: #fff;
+  color: var(--bg);
   border-color: var(--ink);
 }
-.btn-primary:hover { background: #3b3b3b; border-color: #3b3b3b; }
+.btn-primary:hover { background: var(--ink-2); border-color: var(--ink-2); }
 
 .btn-outline {
   color: var(--ink);
   border-color: var(--ink);
 }
-.btn-outline:hover { background: #f2f2f2; }
+.btn-outline:hover { background: var(--fill); }
 
 /* ============================================================
    Label rows — 150px label column, content right
@@ -383,10 +496,11 @@ button:focus-visible,
 
 .row-label {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+  font-weight: 600;
 }
 
 .rows-ruled > .row {
@@ -421,7 +535,7 @@ button:focus-visible,
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--bg);
   background: var(--ink);
   vertical-align: 0.14em;
 }
@@ -491,14 +605,16 @@ button:focus-visible,
 }
 
 .tl-head h3 {
+  font-family: var(--display-font);
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
 
 .date {
-  font-size: 12px;
+  font-size: 18px;
+  font-weight: bold;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -630,8 +746,9 @@ button:focus-visible,
 }
 
 .project-cell h3 {
+  font-family: var(--display-font);
   font-size: 17px;
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.01em;
   margin-bottom: 8px;
 }
@@ -663,7 +780,7 @@ button:focus-visible,
 
 .cell-links a.secondary {
   color: var(--muted);
-  border-bottom-color: #d4d4d4;
+  border-bottom-color: var(--line-2);
   transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 .cell-links a.secondary:hover {
@@ -686,16 +803,19 @@ button:focus-visible,
 }
 
 .course-issuer {
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+
 }
 
 .course-row strong {
   display: block;
+  font-family: var(--display-font);
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .course-note {
@@ -744,15 +864,60 @@ html.js .reveal {
 html.js .reveal.is-visible {
   opacity: 1;
   transform: none;
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  /* GSAP owns this motion. No CSS transition here: it caused a second reveal
+     when GSAP finished and added .is-visible. */
+  transition: none;
+}
+
+/* ============================================================
+   Typewriter typography + restrained interaction polish
+   ============================================================ */
+.section-title .type-char {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform, opacity;
+}
+
+/* Hairline ink, modest movement: the content architecture stays unchanged. */
+.focus-cell,
+.stat-cell,
+.project-cell,
+.social a,
+.tags span,
+.chips span,
+.btn,
+.link-inline,
+.cell-links a {
+  transition-property: color, background-color, border-color, transform, box-shadow;
+  transition-duration: .22s;
+  transition-timing-function: var(--ease);
+}
+
+.focus-cell:hover,
+.stat-cell:hover,
+.project-cell:hover {
+  background-color: var(--fill);
+}
+
+.project-cell:hover { transform: translateY(-2px); }
+.social a:hover { transform: translateY(-2px); }
+.tags span:hover,
+.chips span:hover { border-color: var(--ink); color: var(--ink); }
+.btn:hover { transform: translateY(-1px); }
+
+/* Quiet monochrome surfaces preserve the original black-and-white theme. */
+.grid-module,
+.note,
+.callout {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .025);
 }
 
 /* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 1180px) {
-  :root { --rail: 280px; }
-  .sidebar { padding: 36px 26px; }
+  :root { --rail: 280px; --sidebar-pad-x: 26px; }
+  .sidebar { padding: 36px var(--sidebar-pad-x); }
   .main { padding: 44px 40px 0; }
 }
 
@@ -781,7 +946,7 @@ html.js .reveal.is-visible {
   .availability { margin-top: 10px; }
   .social { grid-column: 1 / -1; margin-top: 20px; }
 
-  /* Sticky horizontal section strip */
+  /* Keep the proven horizontal section nav on touch layouts. */
   .nav {
     position: sticky;
     top: 0;
@@ -790,30 +955,33 @@ html.js .reveal.is-visible {
     padding: 0 24px;
     border-top: 2px solid var(--ink);
     border-bottom: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.94);
+    background: color-mix(in srgb, var(--bg) 94%, transparent);
     backdrop-filter: saturate(180%) blur(12px);
     -webkit-backdrop-filter: saturate(180%) blur(12px);
   }
-
-  .nav ul {
+  .dial-widget { display: none; }
+  .nav-list {
+    display: flex;
     flex-direction: row;
     gap: 20px;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  .nav ul::-webkit-scrollbar { display: none; }
-
-  .nav li { flex: none; }
-
-  .nav a {
+  .nav-list::-webkit-scrollbar { display: none; }
+  .nav-list li { flex: none; }
+  .nav-list a {
     display: block;
     padding: 12px 0;
     white-space: nowrap;
     border-bottom: 2px solid transparent;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    transition: color .2s var(--ease), border-color .2s var(--ease);
   }
-  .nav a::before { display: none; }
-  .nav a.active { border-bottom-color: var(--ink); }
+  .nav-list a:hover, .nav-list a.active { color: var(--ink); }
+  .nav-list a.active { border-bottom-color: var(--ink); }
 
   .sidebar-foot { display: none; }
 
@@ -873,7 +1041,7 @@ html.js .reveal.is-visible {
     display: none !important;
   }
   .profile { display: flex; align-items: center; gap: 18px; padding: 0; }
-  .profile-img-wrap { width: 80px; height: 80px; margin: 0; }
+  .profile-img-wrap { width: 180px; height: 180px; margin: 0; }
   .main { padding: 0; max-width: none; }
   .section { margin-bottom: 20px; page-break-inside: avoid; }
   .row, .tl-item, .project-cell, .course-row { page-break-inside: avoid; }
@@ -886,4 +1054,541 @@ html.js .reveal.is-visible {
 
 @media (max-width: 900px) {
   .section { scroll-margin-top: 60px; }
+}
+
+
+/* Dial tuning and small desktop-height adjustments */
+@media (min-width: 901px) and (max-height: 820px) {
+  .sidebar { padding-top: 24px; padding-bottom: 24px; }
+  .profile-img-wrap { width: 176px; height: 176px; margin-bottom: 12px; }
+  .name { font-size: 21px; }
+  .role-sub { font-size: 12px; }
+  .social { margin-top: 10px; }
+  .nav { margin-top: 12px; }
+  .dial-widget { max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dial-link text, .dial-sound,
+  .focus-cell, .stat-cell, .project-cell, .social a, .tags span, .chips span, .btn {
+    transition: none;
+  }
+  .project-cell:hover, .social a:hover, .btn:hover { transform: none; }
+}
+
+
+/* Each wedge is a proper clickable link, not just a decorative label. */
+.dial-link .dial-sector {
+  fill: transparent;
+  stroke: none;
+  pointer-events: all;
+  transition: fill .18s ease;
+}
+.dial-link:hover .dial-sector,
+.dial-link:focus-visible .dial-sector { fill: var(--fill); }
+.dial-link.is-active .dial-sector { fill: var(--fill); }
+.dial-dividers { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .dial-link .dial-sector { transition: none; }
+}
+
+
+/* ============================================================
+   Responsive type scale, theme control, dark mode, and signature footer
+   These refinements preserve the original page architecture.
+   ============================================================ */
+:root[data-theme="light"] { color-scheme: light; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f5f5f5;
+  --ink-2: #dedede;
+  --body: #d0d0d0;
+  --muted: #b0b0b0;
+  --faint: #919191;
+  --bg: #111111;
+  --fill: #202020;
+  --line: #383838;
+  --line-2: #707070;
+  --dial-ink: #f5f5f5;
+  --dial-muted: #a0a0a0;
+}
+
+body {
+  font-size: clamp(14px, .95vw, 15px);
+  background-color: var(--bg);
+  color: var(--ink);
+  transition: background-color .24s var(--ease), color .24s var(--ease);
+}
+
+.profile-img-wrap { background: var(--fill); }
+.skip-link { background: var(--ink); color: var(--bg); }
+.btn-primary { background: var(--ink); color: var(--bg); }
+.badge { background: var(--ink); color: var(--bg); }
+.focus-cell:hover,
+.stat-cell:hover,
+.project-cell:hover { background-color: var(--fill); }
+
+.theme-toggle {
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.theme-toggle:hover { border-color: var(--ink); transform: rotate(-8deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--dial-accent); outline-offset: 3px; }
+.theme-toggle span { display: block; transform: translateY(-1px); }
+
+/* Consistent reading widths and responsive sizes across content sections. */
+.main {
+  width: 100%;
+  max-width: 1440px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: clamp(32px, 4.2vw, 64px) clamp(22px, 4.3vw, 68px) 0;
+}
+.section { margin-bottom: clamp(44px, 5vw, 68px); }
+.section-head { gap: clamp(10px, 1.4vw, 14px); margin-bottom: clamp(20px, 2.4vw, 28px); }
+.section-title {
+  font-family: var(--display-font);
+  font-size: clamp(16px, .95vw, 14px);
+  line-height: 1.35;
+  letter-spacing: .10em;
+}
+.lead {
+  font-size: clamp(17px, 1.25vw, 19px);
+  line-height: 1.65;
+  max-width: 66ch;
+  margin-bottom: clamp(22px, 2.5vw, 30px);
+}
+.lead-sm {
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.65;
+  max-width: 66ch;
+}
+.copy,
+.tl-summary,
+.bullets,
+.coursework,
+.project-cell > p,
+.note p,
+.callout p,
+.focus-cell p {
+  font-size: clamp(14px, .93vw, 15px);
+  line-height: 1.72;
+}
+.copy,
+.coursework,
+.project-cell > p,
+.note p,
+.callout p,
+.focus-cell p { max-width: 70ch; }
+.tl-head h3,
+.project-cell h3 {
+  font-size: clamp(16px, 1.08vw, 18px);
+  line-height: 1.4;
+}
+.main .grid-module { min-width: 0; }
+.main > .section { min-width: 0; }
+
+/* The name is intentionally clipped at roughly 70% height, matching the sketch. */
+.footer {
+  display: block;
+  width: 100%;
+  border-top: 0;
+  padding: 0;
+  margin-top: clamp(28px, 4.5vw, 62px);
+  color: var(--muted);
+}
+.footer-wordmark {
+  --wordmark-size: clamp(2rem, 7.15vw, 8rem);
+  width: 100%;
+  height: calc(var(--wordmark-size) * .72);
+  overflow: hidden;
+  position: relative;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 18px;
+}
+.footer-wordmark span {
+  display: block;
+  width: max-content;
+  font-family: var(--display-font);
+  font-size: var(--wordmark-size);
+  font-weight: 400;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding: 0 0 26px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.footer-meta a {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.footer-meta a:hover { border-color: var(--ink); }
+
+:root[data-theme="dark"] .dial-link:hover .dial-sector,
+:root[data-theme="dark"] .dial-link:focus-visible .dial-sector,
+:root[data-theme="dark"] .dial-link.is-active .dial-sector { fill: var(--fill); }
+:root[data-theme="dark"] .btn-outline:hover { background: var(--fill); }
+
+@media (min-width: 901px) {
+  .sidebar { background: var(--bg); }
+}
+
+@media (max-width: 1180px) {
+  .main { padding-inline: clamp(24px, 3.6vw, 42px); }
+}
+
+@media (max-width: 900px) {
+  .main {
+    max-width: none;
+    padding: 30px clamp(20px, 4.8vw, 32px) 0;
+  }
+  .footer-wordmark { --wordmark-size: clamp(2rem, 7.4vw, 4.5rem); }
+  .footer-meta { align-items: flex-start; }
+  .theme-toggle { margin-left: 2px; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 14px; }
+  .profile { padding-inline: 18px; grid-template-columns: 84px minmax(0, 1fr); gap: 0 14px; }
+  .profile-img-wrap { width: 84px; height: 84px;}
+  .name { font-size: clamp(19px, 5.5vw, 23px); }
+  .social { gap: clamp(10px, 3vw, 14px); align-items: center; }
+  .social a { min-width: 24px; min-height: 30px; display: inline-flex; align-items: center; }
+  .theme-toggle { width: 30px; height: 30px; flex-basis: 30px; }
+  .main { padding-inline: 18px; }
+  .section { margin-bottom: 42px; }
+  .section-head { margin-bottom: 20px; }
+  .lead { font-size: 17px; }
+  .grid-2 { grid-template-columns: minmax(0, 1fr); }
+  .project-cell { padding: 18px; }
+  .footer-wordmark { --wordmark-size: clamp(1.85rem, 7.2vw, 2.75rem); height: calc(var(--wordmark-size) * .72); }
+  .footer-meta { font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body, .theme-toggle, .footer-meta a { transition: none !important; }
+  .theme-toggle:hover { transform: none; }
+}
+
+/* ============================================================
+   Precision pass: consistent type scale, fuller section layouts,
+   more visible theme control, and oversized signature footer.
+   ============================================================ */
+
+/* Use one compact reading scale throughout; headings remain distinct. */
+.lead,
+.lead-sm,
+.copy,
+.tl-summary,
+.bullets,
+.coursework,
+.project-cell > p,
+.note p,
+.callout p,
+.focus-cell p {
+  width: 100%;
+  max-width: none;
+  font-size: clamp(14px, .95vw, 15px);
+  line-height: 1.68;
+}
+
+.lead,
+.lead-sm {
+  margin-bottom: 18px;
+  text-wrap: pretty;
+}
+
+.copy + .copy { margin-top: 12px; }
+
+/* Let the sections use the main column instead of ending early. */
+.timeline,
+.timeline .tl-item,
+.award-list,
+.award-list > .award,
+#research > .reveal,
+#education .coursework {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+.timeline { padding-left: 20px; }
+.tl-item::before { left: -24px; }
+.bullets { padding-left: 18px; }
+.award-list { gap: 26px; }
+.award-list > .award { padding-bottom: 26px; }
+
+/* Bring content a little closer to the left edge and reclaim horizontal room. */
+@media (min-width: 901px) {
+  .main {
+    padding-left: clamp(22px, 2.8vw, 44px);
+    padding-right: clamp(22px, 2.8vw, 44px);
+  }
+
+  /* Persistent, clearly labelled control at the upper-right of desktop. */
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 100;
+    width: auto;
+    min-width: 124px;
+    height: 40px;
+    flex: 0 0 auto;
+    gap: 9px;
+    padding: 0 13px;
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    background: var(--bg);
+    color: var(--ink);
+    box-shadow: 0 3px 0 var(--line);
+  }
+
+  .theme-toggle::after {
+    content: "DARK MODE";
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    white-space: nowrap;
+  }
+
+  :root[data-theme="dark"] .theme-toggle::after { content: "LIGHT MODE"; }
+}
+
+/* The footer wordmark is intentionally oversized and crops its lower 30%. */
+.footer-wordmark {
+  --wordmark-size: clamp(3rem, 8vw, 9rem);
+  height: calc(var(--wordmark-size) * .70);
+  margin-top: clamp(38px, 5.5vw, 82px);
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.footer-wordmark span {
+  width: max-content;
+  font-size: var(--wordmark-size);
+  line-height: 1;
+  letter-spacing: -.065em;
+  transform: scaleX(.85);
+  transform-origin: left top;
+}
+
+.footer-meta {
+  padding-bottom: clamp(24px, 3vw, 42px);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  /* Keep the theme control in the profile's social row on smaller screens. */
+  .social { width: 100%; align-items: center; }
+  .theme-toggle {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    width: auto;
+    min-width: 92px;
+    height: 32px;
+    flex: 0 0 auto;
+    margin-left: auto;
+    padding: 0 9px;
+    gap: 6px;
+    border-radius: 2px;
+    box-shadow: none;
+  }
+  .theme-toggle::after {
+    content: "THEME";
+    font-family: var(--font);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .07em;
+  }
+  .footer-wordmark {
+    --wordmark-size: clamp(3rem, 10.5vw, 7rem);
+    margin-top: 48px;
+  }
+  .footer-wordmark span { transform: scaleX(.85); }
+}
+
+@media (max-width: 600px) {
+  .lead,
+  .lead-sm,
+  .copy,
+  .tl-summary,
+  .bullets,
+  .coursework,
+  .project-cell > p,
+  .note p,
+  .callout p,
+  .focus-cell p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .main { padding-left: 18px; padding-right: 18px; }
+  .timeline { padding-left: 18px; }
+  .tl-item::before { left: -22px; }
+  .footer-wordmark {
+    --wordmark-size: clamp(2.8rem, 10.5vw, 4.25rem);
+    height: calc(var(--wordmark-size) * .70);
+    margin-top: 42px;
+  }
+  .footer-wordmark span { transform: scaleX(.79); }
+  .footer-meta { gap: 8px 14px; font-size: 11px; }
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  border-color: var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+  box-shadow: 0 3px 0 var(--line);
+}
+
+@media (max-width: 900px) {
+  :root[data-theme="dark"] .theme-toggle { box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle { transition: none !important; }
+}
+
+
+/* ============================================================
+   Footer composition — contact row above the oversized signature
+   ============================================================ */
+.footer-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0 12px;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.footer-contact {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+}
+
+.footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  min-height: 118px;
+  padding: 22px clamp(16px, 2.3vw, 30px);
+}
+
+.footer-contact-item + .footer-contact-item {
+  border-left: 1px solid var(--line);
+}
+
+.footer-contact-label {
+  display: inline-block;
+  padding: 6px 9px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--display-font);
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.footer-contact-value {
+  max-width: 100%;
+  color: var(--body);
+  font-family: var(--font);
+  font-size: clamp(13px, .92vw, 15px);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.footer-contact a {
+  color: var(--ink);
+  text-decoration: none;
+  text-underline-offset: 4px;
+  border-bottom: 1px solid var(--line-2);
+}
+.footer-contact a:hover { border-color: var(--dial-accent); }
+
+/* The wordmark is the final footer element: the lower ~30% is clipped
+   at the bottom edge to match the hand-drawn reference. */
+.footer-wordmark {
+  --wordmark-size: clamp(3rem, 8vw, 9rem);
+  height: calc(var(--wordmark-size) * .59);
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.footer-wordmark span {
+  font-size: var(--wordmark-size);
+  line-height: 1;
+  transform: scaleX(.85);
+  transform-origin: left top;
+}
+
+@media (max-width: 900px) {
+  .footer-contact-item { min-height: 108px; padding: 18px clamp(12px, 2.5vw, 22px); }
+  .footer-wordmark { --wordmark-size: clamp(3rem, 10.5vw, 7rem); height: calc(var(--wordmark-size) * .59); }
+  .footer-wordmark span { transform: scaleX(.85); }
+}
+
+@media (max-width: 600px) {
+  .footer-contact { grid-template-columns: minmax(0, 1fr); }
+  .footer-contact-item { min-height: 90px; padding: 16px 4px; gap: 9px; }
+  .footer-contact-item + .footer-contact-item { border-left: 0; border-top: 1px solid var(--line); }
+  .footer-contact-value { font-size: 13px; }
+  .footer-wordmark {
+    --wordmark-size: clamp(2.8rem, 10.5vw, 4.25rem);
+    height: calc(var(--wordmark-size) * .59);
+  }
+  .footer-wordmark span { transform: scaleX(.79); }
+}
+
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .footer-wordmark { --wordmark-size: clamp(3rem, 7.6vw, 7rem); }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .footer-wordmark span { transform: scaleX(.90); }
+}
+
+@media (max-width: 600px) {
+  .footer-wordmark span { transform: scaleX(.90); }
+}
+
+@media (max-width: 450px) {
+  .footer-wordmark span { transform: scaleX(.77); }
 }

@@ -4,32 +4,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omar Faruk Maruf — Software Engineer</title>
+  <title>Omar Faruk Maruf</title>
   <meta name="description"
-    content="Omar Faruk Maruf — Software Engineer specialising in web and blockchain development, with research interests in autonomous devices, computer vision and security." />
+    content="Omar Faruk Maruf — Software Engineer specialising in full-stack web and blockchain development, with research interests in autonomous devices, computer vision and security." />
   <meta name="author" content="Omar Faruk Maruf" />
   <link rel="canonical" href="https://omarfarukmaruf.github.io/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Omar Faruk Maruf — Software Engineer" />
   <meta property="og:description"
-    content="Software Engineer specialising in web and blockchain development, with research interests in autonomous devices, computer vision and security." />
+    content="Software Engineer specialising in full-stack web and blockchain development, with research interests in autonomous devices, computer vision and security." />
   <meta property="og:url" content="https://omarfarukmaruf.github.io/" />
   <meta property="og:image" content="https://omarfarukmaruf.github.io/assets/md-omar-faruk.jpeg" />
   <meta name="twitter:card" content="summary" />
 
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141414'/><text x='50' y='52' font-family='Archivo,system-ui,sans-serif' font-size='44' font-weight='800' fill='white' text-anchor='middle' dominant-baseline='central'>OF</text></svg>" />
+    href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <rect width='100' height='100' fill='%23141414'/>
+      <text x='50' y='52' font-family='Archivo,system-ui,sans-serif' font-size='44' font-weight='800' fill='white' text-anchor='middle' dominant-baseline='central'>OF</text>
+    </svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Entrance animations only run when JS is confirmed; without this the
-       content is always visible. -->
-  <script>document.documentElement.classList.add('js');</script>
+  <!-- Set the saved theme before first paint to avoid a light/dark flash. -->
+  <script>
+    (() => {
+      document.documentElement.classList.add('js');
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem('portfolio-theme') || 'light';
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
 </head>
 
 <body>
@@ -60,15 +72,12 @@
     <aside class="sidebar">
       <div class="profile">
         <div class="profile-img-wrap">
-          <img src="assets/md-omar-faruk.jpeg" alt="Portrait of Omar Faruk Maruf" class="profile-img" width="400"
-            height="400" />
+          <img src="assets/md-omar-faruk.jpeg" alt="Portrait of Omar Faruk Maruf" class="profile-img"/>
         </div>
         <div class="profile-text">
-          <h1 class="name">Omar Faruk<br>Maruf</h1>
+          <h1 class="name">Omar Faruk Maruf</h1>
           <p class="role">Software Engineer</p>
           <p class="role-sub">Blockchain · Web · Research</p>
-          <!-- Edit or delete this status line as it changes -->
-          <p class="availability">Open to engineering &amp; research roles</p>
         </div>
 
         <div class="social">
@@ -80,12 +89,98 @@
             aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar" /></svg></a>
           <a href="mailto:omarfaruk.maruff@gmail.com" aria-label="Email" title="Email"><svg
               aria-hidden="true"><use href="#i-mail" /></svg></a>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"
+            aria-pressed="false">
+            <span id="themeToggleIcon" aria-hidden="true">☾</span>
+          </button>
         </div>
       </div>
 
       <nav class="nav" aria-label="Section navigation">
-        <ul>
-          <li><a href="#overview" class="active">Overview</a></li>
+        <div class="dial-widget">
+          <div class="dial-heading" aria-hidden="true">
+            <span>PORTFOLIO INDEX</span>
+            <span>09 SECTIONS</span>
+          </div>
+
+          <div class="dial" id="sectionDial">
+            <div class="dial-ticks" aria-hidden="true"></div>
+            <svg class="dial-face" viewBox="0 0 320 320" role="group" aria-label="Rotating section selector">
+              <title>Portfolio section selector</title>
+              <desc>Choose a section, or scroll the page to rotate the dial to the active section.</desc>
+              <circle class="dial-case" cx="160" cy="160" r="145" />
+              <circle class="dial-inner-ring" cx="160" cy="160" r="132" />
+                            <g class="dial-rotor" id="dialRotor" transform="rotate(90 160 160)" aria-label="Portfolio sections">
+                <a class="dial-link is-active" href="#overview" data-index="0" aria-label="Go to Overview section" aria-current="location">
+                  <path class="dial-sector" d="M 160 160 L 116.6 40.7 A 127 127 0 0 1 203.4 40.7 Z" />
+                  <text x="160.0" y="76.0" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 160.0 76.0)">Overview</text>
+                </a>
+                <a class="dial-link" href="#experience" data-index="1" aria-label="Go to Experience section">
+                  <path class="dial-sector" d="M 160 160 L 203.4 40.7 A 127 127 0 0 1 270.0 96.5 Z" />
+                  <text x="214.0" y="95.7" text-anchor="middle" dominant-baseline="middle" transform="rotate(-50 214.0 95.7)">Experience</text>
+                </a>
+                <a class="dial-link" href="#education" data-index="2" aria-label="Go to Education section">
+                  <path class="dial-sector" d="M 160 160 L 270.0 96.5 A 127 127 0 0 1 285.1 182.1 Z" />
+                  <text x="242.7" y="145.4" text-anchor="middle" dominant-baseline="middle" transform="rotate(-10 242.7 145.4)">Education</text>
+                </a>
+                <a class="dial-link" href="#research" data-index="3" aria-label="Go to Research section">
+                  <path class="dial-sector" d="M 160 160 L 285.1 182.1 A 127 127 0 0 1 241.6 257.3 Z" />
+                  <text x="232.7" y="202.0" text-anchor="middle" dominant-baseline="middle" transform="rotate(30 232.7 202.0)">Research</text>
+                </a>
+                <a class="dial-link" href="#projects" data-index="4" aria-label="Go to Projects section">
+                  <path class="dial-sector" d="M 160 160 L 241.6 257.3 A 127 127 0 0 1 160.0 287.0 Z" />
+                  <text x="188.7" y="238.9" text-anchor="middle" dominant-baseline="middle" transform="rotate(70 188.7 238.9)">Projects</text>
+                </a>
+                <a class="dial-link" href="#awards" data-index="5" aria-label="Go to Awards section">
+                  <path class="dial-sector" d="M 160 160 L 160.0 287.0 A 127 127 0 0 1 78.4 257.3 Z" />
+                  <text x="131.3" y="238.9" text-anchor="middle" dominant-baseline="middle" transform="rotate(110 131.3 238.9)">Awards</text>
+                </a>
+                <a class="dial-link" href="#skills" data-index="6" aria-label="Go to Skills section">
+                  <path class="dial-sector" d="M 160 160 L 78.4 257.3 A 127 127 0 0 1 34.9 182.1 Z" />
+                  <text x="87.3" y="202.0" text-anchor="middle" dominant-baseline="middle" transform="rotate(150 87.3 202.0)">Skills</text>
+                </a>
+                <a class="dial-link" href="#courses" data-index="7" aria-label="Go to Courses section">
+                  <path class="dial-sector" d="M 160 160 L 34.9 182.1 A 127 127 0 0 1 50.0 96.5 Z" />
+                  <text x="77.3" y="145.4" text-anchor="middle" dominant-baseline="middle" transform="rotate(190 77.3 145.4)">Courses</text>
+                </a>
+                <a class="dial-link" href="#others" data-index="8" aria-label="Go to Others section">
+                  <path class="dial-sector" d="M 160 160 L 50.0 96.5 A 127 127 0 0 1 116.6 40.7 Z" />
+                  <text x="106.0" y="95.7" text-anchor="middle" dominant-baseline="middle" transform="rotate(230 106.0 95.7)">Others</text>
+                </a>
+                <g class="dial-dividers" aria-hidden="true">
+                  <line x1="160" y1="160" x2="203.4" y2="40.7" />
+                  <line x1="160" y1="160" x2="270.0" y2="96.5" />
+                  <line x1="160" y1="160" x2="285.1" y2="182.1" />
+                  <line x1="160" y1="160" x2="241.6" y2="257.3" />
+                  <line x1="160" y1="160" x2="160.0" y2="287.0" />
+                  <line x1="160" y1="160" x2="78.4" y2="257.3" />
+                  <line x1="160" y1="160" x2="34.9" y2="182.1" />
+                  <line x1="160" y1="160" x2="50.0" y2="96.5" />
+                  <line x1="160" y1="160" x2="116.6" y2="40.7" />
+                </g>
+              </g>
+              <g class="dial-pointer" aria-hidden="true">
+                <path d="M284 160 L307 148 L307 172 Z" />
+                <circle cx="294" cy="160" r="3" />
+              </g>
+              <circle class="dial-hub" cx="160" cy="160" r="12" />
+              <circle class="dial-hub-core" cx="160" cy="160" r="4" />
+            </svg>
+          </div>
+
+          <div class="dial-readout" aria-live="polite" aria-atomic="true">
+            <span class="dial-readout-index" id="dialReadoutIndex">01</span>
+            <span class="dial-readout-name" id="dialReadoutName">Overview</span>
+          </div>
+          <button class="dial-sound" id="dialSoundToggle" type="button" aria-pressed="false" aria-label="Enable section dial click sound">
+            <span class="dial-sound-led" aria-hidden="true"></span>
+            <span id="dialSoundLabel">Sound Off</span>
+          </button>
+        </div>
+
+        <!-- The compact horizontal navigation is used on tablets and phones. -->
+        <ul class="nav-list">
+          <li><a href="#overview" class="active" aria-current="location">Overview</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#research">Research</a></li>
@@ -96,9 +191,6 @@
           <li><a href="#others">Others</a></li>
         </ul>
       </nav>
-
-      <!-- Verify/edit: location inferred from your university and DYDF branch -->
-      <p class="sidebar-foot">Barishal, Bangladesh</p>
     </aside>
 
     <!-- ==================== Main ==================== -->
@@ -112,7 +204,7 @@
         </div>
 
         <div class="reveal">
-          <p class="lead">Software Engineer specialising in web and blockchain development, with research
+          <p class="lead">Software Engineer specialising in full-stack web and blockchain development, with research
             interests in autonomous devices, computer vision and security. I build reliable, high-performance
             systems with an emphasis on developer experience.</p>
 
@@ -137,7 +229,7 @@
 
           <div class="actions">
             <a href="assets/CV_omar-faruk.pdf" class="btn btn-primary" target="_blank" rel="noopener">Download
-              Résumé</a>
+              Resume</a>
             <a href="https://scholar.google.com/citations?hl=en&amp;user=nJJyJjsAAAAJ" class="btn btn-outline"
               target="_blank" rel="noopener">Google Scholar</a>
           </div>
@@ -534,14 +626,20 @@
         </div>
       </section>
 
-      <footer class="footer">
-        <span>© <span id="year">2026</span> Omar Faruk Maruf</span>
-        <a href="mailto:omarfaruk.maruff@gmail.com">omarfaruk.maruff@gmail.com</a>
+      <footer class="footer" aria-label="Contact and signature">
+        <div class="footer-meta">
+          <span>© <span id="year">2026</span> Omar Faruk Maruf</span>
+        </div>
+        <div class="footer-wordmark" aria-hidden="true">
+          <span>OMAR FARUK MARUF</span>
+        </div>
       </footer>
 
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 
