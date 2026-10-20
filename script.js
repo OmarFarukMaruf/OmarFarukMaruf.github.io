@@ -355,4 +355,56 @@
     items.forEach(item => observer.observe(item));
     window.setTimeout(() => items.forEach(item => item.classList.add('is-visible')), 3000);
   }
+
+  // Footer wordmark entrance
+  function initFooterAnimation() {
+    const footer = document.querySelector('#site-footer');
+    const wordmark = footer?.querySelector('.footer-wordmark');
+
+    if (!footer || !wordmark ) return;
+    if (!window.gsap || !window.ScrollTrigger) return;
+
+    // Respect the visitor's motion preference.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+    
+    const gsap = window.gsap;
+    gsap.registerPlugin(window.ScrollTrigger);
+
+    if (wordmark.dataset.animated === 'true') return;
+    wordmark.dataset.animated = 'true';
+    
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: footer,
+        start: 'top 85%',
+        end: 'top 50%',
+        scrub: 0.5,
+      }
+    });
+
+    timeline.fromTo(wordmark, 
+      { 
+        yPercent: 115, 
+        scale: 0.72, 
+        autoAlpha: 0 
+      },
+      { 
+        yPercent: -4, 
+        scale: 1.12, 
+        autoAlpha: 1, 
+        duration: 0.48, 
+        ease: "bounce.out" }
+    );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initFooterAnimation,
+      { once: true }
+    );
+  } else {
+    initFooterAnimation();
+  }
+
 })();
