@@ -917,8 +917,8 @@ html.js .reveal.is-visible {
     color: var(--muted);
     transition: color .2s var(--ease), border-color .2s var(--ease);
   }
-  .nav-list a:hover, .nav-list a.active { color: var(--ink); }
-  .nav-list a.active { border-bottom-color: var(--ink); }
+  .nav-list a:hover, .nav-list a.active { color: var(--ink-red); }
+  .nav-list a.active { border-bottom-color: var(--ink-red); }
 
   .sidebar-foot { display: none; }
 
@@ -1628,7 +1628,7 @@ html, body {
     padding: 30px clamp(20px, 4.8vw, 32px) 0;
   }
   .site-footer { margin-top: clamp(48px, 10vw, 100px); }
-  .footer-wordmark { font-size: clamp(2.6rem, 10vw, 6rem); }
+  .footer-wordmark { font-size: clamp(2.6rem, 10vw, 6rem); border-color: var(--ink-red); }
 }
 
 @media (max-width: 600px) {
@@ -1636,7 +1636,7 @@ html, body {
   .footer-meta { flex-direction: column; gap: 1rem; padding-inline: 0; }
   .site-footer .social { margin-top: 0; }
   .footer-wordmark-window { min-height: 3rem; }
-  .footer-wordmark { font-size: clamp(2.4rem, 12vw, 4.5rem); }
+  .footer-wordmark { font-size: clamp(2.4rem, 12vw, 4.5rem); border-color: var(--ink-red); }
 }
 
 /* Respect reduced-motion preferences for the rotor dial */

@@ -369,7 +369,7 @@
       scrollTrigger: {
         trigger: footer,
         start: 'top bottom',
-        end: 'top 25%',
+        end: 'top 5%',
         scrub: 0.5,
         invalidateOnRefresh: true
       }
