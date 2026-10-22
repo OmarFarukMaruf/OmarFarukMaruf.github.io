@@ -368,8 +368,8 @@
     const timeline = window.gsap.timeline({
       scrollTrigger: {
         trigger: footer,
-        start: 'top 85%',
-        end: 'top 50%',
+        start: 'top bottom',
+        end: 'top 25%',
         scrub: 0.5,
         invalidateOnRefresh: true
       }
