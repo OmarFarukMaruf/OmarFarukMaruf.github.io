@@ -304,21 +304,6 @@ button:focus-visible,
   flex: none;
 }
 .dial-sound[aria-pressed="true"] .dial-sound-led { background: var(--dial-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--dial-accent) 14%, transparent); }
-.dial-hint {
-  margin-top: 10px;
-  color: var(--faint);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: .13em;
-  text-align: center;
-}
-
-.sidebar-foot {
-  padding-top: 24px;
-  font-size: 12px;
-  color: var(--muted);
-}
-
 /* ---------- Main ---------- */
 .main {
   padding: 56px 64px 0;
@@ -544,24 +529,11 @@ button:focus-visible,
   color: var(--faint);
 }
 
-.row-date {
-  font-size: 12px;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-  line-height: 1.5;
-}
-
 .row h3 {
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.01em;
   margin-bottom: 2px;
-}
-
-.row-org {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 12px;
 }
 
 /* ============================================================
@@ -646,19 +618,6 @@ button:focus-visible,
 }
 
 /* Sub-group inside a section (Volunteering) */
-.subsection { margin-top: 34px; }
-
-.subsection-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-bottom: 9px;
-  margin-bottom: 22px;
-  border-bottom: 1px solid var(--line);
-}
-
 /* Filled note blocks (volunteering entries, callouts) */
 .note {
   background: var(--fill);
@@ -1015,7 +974,7 @@ html.js .reveal.is-visible {
     padding: 0 0 14px;
     page-break-after: avoid;
   }
-  .nav, .social, .availability, .sidebar-foot, .skip-link, .actions {
+  .nav, .social, .skip-link, .actions {
     display: none !important;
   }
   .profile { display: flex; align-items: center; gap: 18px; padding: 0; }
@@ -1255,7 +1214,7 @@ body {
   color: var(--ink, #141414);
   font-family: Impact, Haettenschweiler,
     "Arial Narrow Bold", "Arial Narrow", sans-serif;
-  font-size: var(--wordmark-size)*5;
+  font-size: var(--wordmark-size);
   font-weight: 400;
   line-height: 0.89;
   letter-spacing: -0.02em;
@@ -1423,15 +1382,6 @@ body {
   border-bottom: 2px solid var(--ink);
 }
 
-.footer-wordmark span {
-  width: max-content;
-  font-size: var(--wordmark-size);
-  line-height: 1;
-  letter-spacing: -.065em;
-  transform: scaleX(.85);
-  transform-origin: left top;
-}
-
 .footer-meta {
   padding-bottom: clamp(24px, 3vw, 42px);
   font-size: 12px;
@@ -1466,7 +1416,7 @@ body {
     --wordmark-size: clamp(3rem, 10.5vw, 7rem);
     margin-top: 48px;
   }
-  .footer-wordmark span { transform: scaleX(.85); }
+
 }
 
 @media (max-width: 600px) {
@@ -1492,8 +1442,8 @@ body {
     height: calc(var(--wordmark-size) * .70);
     margin-top: 42px;
   }
-  .footer-wordmark span { transform: scaleX(.79); }
-  .footer-meta { gap: 8px 14px; font-size: 11px; }
+
+.footer-meta { gap: 8px 14px; font-size: 11px; }
 }
 
 :root[data-theme="dark"] .theme-toggle {
@@ -1512,118 +1462,193 @@ body {
 }
 
 
-/* ============================================================
-   Footer composition — contact row above the oversized signature
-   ============================================================ */
-.footer-meta {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 0 12px;
-  margin: 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 11px;
-  line-height: 1.4;
-}
-
-.footer-contact {
-  display: grid;
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-  width: 100%;
-  border-bottom: 1px solid var(--ink);
-}
-
-.footer-contact-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-  min-width: 0;
-  min-height: 118px;
-  padding: 22px clamp(16px, 2.3vw, 30px);
-}
-
-.footer-contact-item + .footer-contact-item {
-  border-left: 1px solid var(--line);
-}
-
-.footer-contact-label {
-  display: inline-block;
-  padding: 6px 9px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  font-family: var(--display-font);
-  font-size: 11px;
-  line-height: 1.2;
-  letter-spacing: .11em;
-  text-transform: uppercase;
-}
-
-.footer-contact-value {
-  max-width: 100%;
-  color: var(--body);
-  font-family: var(--font);
-  font-size: clamp(13px, .92vw, 15px);
-  line-height: 1.55;
-  overflow-wrap: anywhere;
-}
-
-.footer-contact a {
-  color: var(--ink);
-  text-decoration: none;
-  text-underline-offset: 4px;
-  border-bottom: 1px solid var(--line-2);
-}
-.footer-contact a:hover { border-color: var(--dial-accent); }
-
-/* The wordmark is the final footer element: the lower ~30% is clipped
-   at the bottom edge to match the hand-drawn reference. */
-.footer-wordmark {
-  --wordmark-size: clamp(3rem, 8vw, 9rem);
-  height: calc(var(--wordmark-size) * .70);
-  margin-top: 0;
-  margin-bottom: 0;
-  border-bottom: 0;
-}
-.footer-wordmark span {
-  font-size: var(--wordmark-size);
-  line-height: 1;
-  transform: scaleX(.85);
-  transform-origin: left top;
-}
-
-@media (max-width: 900px) {
-  .footer-contact-item { min-height: 108px; padding: 18px clamp(12px, 2.5vw, 22px); }
-  .footer-wordmark { --wordmark-size: clamp(3rem, 10.5vw, 7rem); height: calc(var(--wordmark-size) * .70); }
-  .footer-wordmark span { transform: scaleX(.85); }
-}
-
-@media (max-width: 600px) {
-  .footer-contact { grid-template-columns: minmax(0, 1fr); }
-  .footer-contact-item { min-height: 90px; padding: 16px 4px; gap: 9px; }
-  .footer-contact-item + .footer-contact-item { border-left: 0; border-top: 1px solid var(--line); }
-  .footer-contact-value { font-size: 13px; }
-  .footer-wordmark {
-    --wordmark-size: clamp(2.8rem, 10.5vw, 4.25rem);
-    height: calc(var(--wordmark-size) * .70);
-  }
-  .footer-wordmark span { transform: scaleX(.79); }
-}
-
-
 @media (min-width: 901px) and (max-width: 1180px) {
   .footer-wordmark { --wordmark-size: clamp(3rem, 7.6vw, 7rem); }
 }
 
-@media (min-width: 601px) and (max-width: 900px) {
-  .footer-wordmark span { transform: scaleX(.90); }
+
+
+
+
+
+
+
+/* Small layout utilities used by the HTML to avoid inline styles. */
+.icon-definitions { position: absolute; }
+.overview-grid { margin-bottom: 28px; }
+.note-spaced { margin-top: 14px; }
+.compact-stats { max-width: 420px; margin: 16px 0; }
+.callout-spaced { margin-top: 20px; }
+.tags-spaced { margin-top: 20px; }
+.copy-spaced { margin-top: 12px; }
+.language-stats { max-width: 520px; }
+
+
+/* ============================================================
+   Responsive stability patch (2026-10)
+   Keep the desktop rail proportional, prevent SVG paint jitter,
+   and let the footer participate in the page's normal flow.
+   ============================================================ */
+:root {
+  --rail: clamp(290px, 24vw, 420px);
+  --sidebar-pad-x: clamp(22px, 2.4vw, 40px);
+}
+
+html, body {
+  min-height: 100%;
+}
+
+.shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  grid-template-columns: minmax(290px, 24vw) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  height: 100dvh;
+  min-width: 0;
+  padding-inline: var(--sidebar-pad-x);
+  overflow-x: clip;
+}
+
+.profile-img-wrap {
+  width: min(100%, 200px);
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.dial-widget {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Avoid animating the sticky widget's layout position during scroll. */
+.dial,
+.dial-face {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.dial-rotor {
+  transform-box: view-box;
+  transform-origin: 160px 160px;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: clamp(32px, 4vw, 68px) clamp(24px, 4vw, 72px) 0;
+}
+
+.main > .section {
+  width: 100%;
+}
+
+.site-footer {
+  flex: 0 0 auto;
+  width: 100%;
+  margin-top: auto;
+  padding-top: clamp(32px, 5vw, 72px);
+  padding-bottom: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.footer-meta {
+  align-items: flex-start;
+  min-width: 0;
+}
+.footer-meta-item,
+.footer-email {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.site-footer .social {
+  margin-top: 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.footer-wordmark-window {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: clamp(3.5rem, 8vw, 9rem);
+  overflow: hidden;
+}
+.footer-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0 0 .06em;
+  font-size: clamp(2.6rem, 8vw, 9rem);
+  line-height: .95;
+  letter-spacing: -.045em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+  border-bottom: 2px solid var(--ink);
+}
+
+@media (min-width: 1600px) {
+  .shell { grid-template-columns: minmax(340px, 25vw) minmax(0, 1fr); }
+  .main { padding-inline: clamp(48px, 4vw, 96px); }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .shell { grid-template-columns: minmax(270px, 30vw) minmax(0, 1fr); }
+  .sidebar { padding: 30px clamp(18px, 2.2vw, 28px); }
+  .main { padding-inline: clamp(24px, 3vw, 40px); }
+}
+
+@media (max-width: 900px) {
+  .shell { display: block; min-height: 100vh; min-height: 100dvh; }
+  .sidebar {
+    position: static;
+    display: contents;
+    height: auto;
+    overflow: visible;
+  }
+  .main {
+    display: flex;
+    min-height: 0;
+    padding: 30px clamp(20px, 4.8vw, 32px) 0;
+  }
+  .site-footer { margin-top: clamp(48px, 10vw, 100px); }
+  .footer-wordmark { font-size: clamp(2.6rem, 10vw, 6rem); }
 }
 
 @media (max-width: 600px) {
-  .footer-wordmark span { transform: scaleX(.90); }
+  .main { padding-inline: 18px; }
+  .footer-meta { flex-direction: column; gap: 1rem; padding-inline: 0; }
+  .site-footer .social { margin-top: 0; }
+  .footer-wordmark-window { min-height: 3rem; }
+  .footer-wordmark { font-size: clamp(2.4rem, 12vw, 4.5rem); }
 }
 
-@media (max-width: 450px) {
-  .footer-wordmark span { transform: scaleX(.77); }
+/* Respect reduced-motion preferences for the rotor dial */
+@media (prefers-reduced-motion: reduce) {
+  .dial,
+  .dial-face { transform: none; }
+  .dial-rotor { will-change: auto; }
+}
+
+/* Center profile content on desktop only */
+@media (min-width: 901px) {
+  .sidebar .profile { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .sidebar .profile-img-wrap { margin-left: auto; margin-right: auto; }
+  .sidebar .profile-text { width: 100%; text-align: center; }
 }

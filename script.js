@@ -5,21 +5,15 @@
 (() => {
   'use strict';
 
-  // Guard against accidental duplicate script tags reinitializing scroll and reveal effects.
-  if (window.__marufPortfolioInitialized) return;
-  window.__marufPortfolioInitialized = true;
-
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (document.documentElement.dataset.portfolioInitialized === 'true') return;
-    document.documentElement.dataset.portfolioInitialized = 'true';
-    setCurrentYear();
     initThemeToggle();
     initScrollSpy();
     initReveal();
     initTypewriter();
     animateDialEntrance();
+    initFooterAnimation();
   });
 
   /* ---------- Persistent light/dark theme toggle ---------- */
@@ -53,10 +47,6 @@
     syncThemeControl();
   }
 
-  function setCurrentYear() {
-    const year = document.getElementById('year');
-    if (year) year.textContent = String(new Date().getFullYear());
-  }
 
   /* ---------- Section dial + scroll-spy ---------- */
   function initScrollSpy() {
@@ -303,8 +293,8 @@
     const widget = document.querySelector('.dial-widget');
     if (!widget || reducedMotion || !window.gsap) return;
     window.gsap.fromTo(widget,
-      { autoAlpha: 0, y: 12 },
-      { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out', clearProps: 'opacity,visibility,transform' }
+      { autoAlpha: 0 },
+      { autoAlpha: 1, duration: 0.45, ease: 'power2.out', clearProps: 'opacity,visibility' }
     );
   }
 
@@ -356,55 +346,53 @@
     window.setTimeout(() => items.forEach(item => item.classList.add('is-visible')), 3000);
   }
 
-  // Footer wordmark entrance
   function initFooterAnimation() {
     const footer = document.querySelector('#site-footer');
-    const wordmark = footer?.querySelector('.footer-wordmark');
+    const wordmark = footer ?.querySelector('.footer-wordmark');
 
-    if (!footer || !wordmark ) return;
-    if (!window.gsap || !window.ScrollTrigger) return;
+    if (!footer || !wordmark) return;
 
-    // Respect the visitor's motion preference.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
-    
-    const gsap = window.gsap;
-    gsap.registerPlugin(window.ScrollTrigger);
+    if (
+      !window.gsap ||
+      !window.ScrollTrigger ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
+    window.gsap.registerPlugin(window.ScrollTrigger);
 
     if (wordmark.dataset.animated === 'true') return;
     wordmark.dataset.animated = 'true';
-    
-    const timeline = gsap.timeline({
+
+    const timeline = window.gsap.timeline({
       scrollTrigger: {
         trigger: footer,
         start: 'top 85%',
         end: 'top 50%',
         scrub: 0.5,
+        invalidateOnRefresh: true
       }
     });
 
-    timeline.fromTo(wordmark, 
-      { 
-        yPercent: 115, 
-        scale: 0.72, 
-        autoAlpha: 0 
+    timeline.fromTo(
+      wordmark,
+      {
+        yPercent: 115,
+        scale: 0.72,
+        autoAlpha: 0
       },
-      { 
-        yPercent: -4, 
-        scale: 1.12, 
-        autoAlpha: 1, 
-        duration: 0.48, 
-        ease: "bounce.out" }
+      {
+        yPercent: -4,
+        scale: 1.12,
+        autoAlpha: 1,
+        duration: 0.48,
+        ease: 'power2.out'
+      }
     );
-  }
 
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      initFooterAnimation,
-      { once: true }
-    );
-  } else {
-    initFooterAnimation();
+    // Recalculate scroll positions after responsive layout changes.
+    requestAnimationFrame(() => ScrollTrigger.refresh());
   }
 
 })();
